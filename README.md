@@ -6,7 +6,7 @@
 <br>
 
 <p align="center">
-  <a href="https://github.com/trimstray/linux-security-checklist/tree/master">
+  <a href="https://github.com/trimstray/linux-hardening-checklist/tree/master">
     <img src="https://img.shields.io/badge/Branch-master-green.svg?longCache=true"
         alt="Branch">
   </a>
@@ -19,7 +19,7 @@
 <div align="center">
   <sub>Created by
   <a href="https://twitter.com/trimstray">trimstray</a> and
-  <a href="https://github.com/trimstray/linux-security-checklist/graphs/contributors">
+  <a href="https://github.com/trimstray/linux-hardening-checklist/graphs/contributors">
     contributors
   </a>
 </div>
