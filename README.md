@@ -2,4 +2,11 @@
 
 <br>
 
+<p align="center">
+    <img src="/blob/master/doc/img/main_preview.jpg"
+        alt="Master">
+</p>
+
+<br>
+
 Work in progress...
