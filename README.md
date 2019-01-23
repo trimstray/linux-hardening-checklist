@@ -106,11 +106,27 @@ LABEL=/boot  /boot  ext2  defaults,ro,nodev,nosuid,noexec  1 2
 
 Several daemons/applications use the `/tmp` or `/var/tmp` directories to temporarily store data, log information, or to share information between their sub-components. However, due to the shared nature of these directories, several attacks are possible.
 
-:bookmark: &nbsp;**Rule:** Restrict `/var` and `/var/tmp` partitions mount options. <img src="https://github.com/trimstray/working-template/blob/master/doc/img/high.png" alt="high">
+:bookmark: &nbsp;**Rule:** Restrict `/var` and `/var/tmp` partitions mount options. <img src="https://github.com/trimstray/working-template/blob/master/doc/img/medium.png" alt="medium">
 
 **Rationale:**
 
-As a rule of thumb, malicious applications usually write to `/tmp` and then attempt to run whatever was written. A way to prevent this is to mount `/tmp` and `/var/tmp` on a separate partition with the setting up polyinstantiated directories mechanism.
+Several daemons/applications use the `/tmp` or `/var/tmp` directories to temporarily store data, log information, or to share information between their sub-components.
+
+**Example:**
+
+```bash
+mv /var/tmp /var/tmp.old
+ln -s /tmp /var/tmp
+cp -prf /var/tmp.old/* /tmp && rm -fr /var/tmp.old
+
+UUID=<...>  /tmp  ext4  defaults,nodev,nosuid,noexec  1 2
+```
+
+:bookmark: &nbsp;**Rule:** Setting up polyinstantiated `/var` and `/var/tmp` directories. <img src="https://github.com/trimstray/working-template/blob/master/doc/img/medium.png" alt="medium">
+
+**Rationale:**
+
+Due to the shared nature of these directories, several attacks are possible. SELinux offers a solution in the form of polyinstantiated directories. This effectively means that both `/tmp/` and `/var/tmp/` are instantiated, making them appear private for each user.
 
 **Example:**
 
@@ -131,6 +147,10 @@ setsebool polyinstantiation_enabled=1
 chcon --reference=/tmp /tmp-inst
 chcon --reference=/var/tmp/ /var/tmp/tmp-inst
 ```
+
+**Comment:**
+
+Don't do this for `/var/tmp` if this directory is mounted in `/tmp`.
 
 # Bootloader
 
