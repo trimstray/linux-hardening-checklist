@@ -289,7 +289,7 @@ Some of the external audit tools use this standard. For example Nessus has funct
 
 ### `swap` partition
 
-- **Rule:** Encrypted `swap` partition. <img src="https://github.com/trimstray/working-template/blob/master/doc/img/low.png" alt="low">
+- **Rule:** Encrypt `swap` partition. <img src="https://github.com/trimstray/working-template/blob/master/doc/img/low.png" alt="low">
 
     **Rationale:**
 
@@ -305,6 +305,11 @@ Some of the external audit tools use this standard. For example Nessus has funct
 
     /dev/mapper/sdb1_crypt none swap sw 0 0
     ```
+
+    **Comment:**
+
+    - swap area is not required to survive a reboot, therefore a new random encryption key can be chosen each time the swap area is activated
+    - get the key from /dev/urandom because /dev/random maybe stalling your boot sequence
 
 # Bootloader
 
