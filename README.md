@@ -154,6 +154,30 @@ Some of the external audit tools use this standard. For example Nessus has funct
 
   > Don't do this for `/var/tmp` if this directory is mounted in `/tmp`.
 
+### `/var` partition
+
+- **Rule:** Ensure `/var` located on separate partition. <img src="https://github.com/trimstray/working-template/blob/master/doc/img/high.png" alt="high">
+
+    **Rationale:**
+
+    `/var` can be filled up by user programs or daemons. Therefore it can be safe to have these in separate partitions that would prevent `/`, the root partition, to be 100% full, and would hit your system badly.
+
+- **Rule:** Restrict `/var` partition mount options. <img src="https://github.com/trimstray/working-template/blob/master/doc/img/low.png" alt="low">
+
+    **Rationale:**
+
+    This helps protect system services such as daemons or other programs which use it.
+
+    **Example:**
+
+    ```bash
+    UUID=<...>  /var  ext4  defaults,nosuid  1 2
+    ```
+
+    **Comment:**
+
+    > Some programs (like mail-mta/netqmail) will not be able to work properly if `/var` has `noexec` and `nosuid`. Consider removing those options if they cause problems.
+
 # Bootloader
 
 # Linux Kernel
