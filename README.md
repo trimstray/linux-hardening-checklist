@@ -86,7 +86,7 @@ Some of the external audit tools use this standard. For example Nessus has funct
 
 The idea behind the `/boot` partition was to make the partition always accessible to any machine that the drive was plugged into. As modern machines have lifted that restriction, there is no longer a fixed need for `/boot` to be separate, unless you require additional processing of the other partitions, such as encryption or file systems that are not natively recognized by the bootloader.
 
-:bookmark: &nbsp;**Rule:** Restrict `/boot` partition mount options <img src="https://github.com/trimstray/working-template/blob/master/doc/img/medium.png" alt="medium">
+:bookmark: &nbsp;**Rule:** Restrict `/boot` partition mount options. <img src="https://github.com/trimstray/working-template/blob/master/doc/img/medium.png" alt="medium">
 
 **Rationale:**
 
@@ -96,6 +96,40 @@ The boot directory contains important files related to the Linux kernel, so you 
 
 ```bash
 LABEL=/boot  /boot  ext2  defaults,ro,nodev,nosuid,noexec  1 2
+```
+
+### `/tmp` and `/var/tmp` partitions
+
+:bookmark: &nbsp;**Rule:** Ensure `/tmp` and `/var/tmp` located on separate partitions. <img src="https://github.com/trimstray/working-template/blob/master/doc/img/high.png" alt="high">
+
+**Rationale:**
+
+Several daemons/applications use the `/tmp` or `/var/tmp` directories to temporarily store data, log information, or to share information between their sub-components. However, due to the shared nature of these directories, several attacks are possible.
+
+:bookmark: &nbsp;**Rule:** Restrict `/var` and `/var/tmp` partitions mount options. <img src="https://github.com/trimstray/working-template/blob/master/doc/img/high.png" alt="high">
+
+**Rationale:**
+
+As a rule of thumb, malicious applications usually write to `/tmp` and then attempt to run whatever was written. A way to prevent this is to mount `/tmp` and `/var/tmp` on a separate partition with the setting up polyinstantiated directories mechanism.
+
+**Example:**
+
+```bash
+# Create new directories:
+
+mkdir --mode 000 /tmp-inst
+mkdir --mode 000 /var/tmp/tmp-inst
+
+# Edit /etc/security/namespace.conf:
+
+/tmp      /tmp-inst/          level  root,adm
+/var/tmp  /var/tmp/tmp-inst/  level  root,adm
+
+# Set correct SELinux context:
+
+setsebool polyinstantiation_enabled=1
+chcon --reference=/tmp /tmp-inst
+chcon --reference=/var/tmp/ /var/tmp/tmp-inst
 ```
 
 # Bootloader
