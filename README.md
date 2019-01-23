@@ -39,6 +39,8 @@
   * [Levels of priority](#levels-of-priority)
   * [OpenSCAP](#openscap)
 - **[Partitioning](#partitioning)**
+  * [`/boot` partition](#boot-partition)
+  * [`/tmp` and `/var/tmp` partitions](#tmp-and-vartmp-partitions)
 - **[Bootloader](#bootloader)**
 - **[Linux Kernel](#linux-kernel)**
 - **[Logging](#logging)**
@@ -150,7 +152,7 @@ chcon --reference=/var/tmp/ /var/tmp/tmp-inst
 
 **Comment:**
 
-Don't do this for `/var/tmp` if this directory is mounted in `/tmp`.
+  > Don't do this for `/var/tmp` if this directory is mounted in `/tmp`.
 
 # Bootloader
 
