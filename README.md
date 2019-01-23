@@ -35,15 +35,19 @@
 # Table of Contents
 
 - **[Introduction](#introduction)**
-  * [How to use?](#how-to-use)
+  * [General disclaimer](#general-disclaimer)
+  * [Levels of priority](#levels-of-priority)
   * [OpenSCAP](#openscap)
-    + [Introduction](#information_source-introduction)
 
 # Introduction
 
-  > In computing, hardening is usually the process of securing a system by reducing its surface of vulnerability, which is larger when a system performs more functions; in principle a single-function system is more secure than a multipurpose one. The main goal of systems hardening is to reduce security risk by eliminating potential attack vectors and condensing the system’s attack surface.
+  > In computing, **hardening** is usually the process of securing a system by reducing its surface of vulnerability, which is larger when a system performs more functions; in principle a single-function system is more secure than a multipurpose one. The main goal of systems hardening is to reduce security risk by eliminating potential attack vectors and condensing the system’s attack surface.
 
-## How to use?
+## General disclaimer
+
+:warning: Recommendation is to always turn a feature from this checklist on in pre-production environments instead of jumping directly into production.
+
+## Levels of priority
 
 All items in this checklist contains three levels of priority:
 
@@ -55,10 +59,8 @@ All items in this checklist contains three levels of priority:
 
 <img src="https://github.com/trimstray/working-template/blob/master/doc/img/openscap_logo.png" alt="OpenSCAP" align="left">
 
-<p align="left">
-<b>SCAP</b> (<i>Security Content Automation Protocol</i>) provides a mechanism to check configurations, vulnerability management and evaluate policy compliance for a variety of systems. One of the most popular implementations of SCAP is <b>OpenSCAP</b> and it is very helpful for vulnerability assessment and also as hardening helper.
+<p align="left"><b>SCAP</b> (<i>Security Content Automation Protocol</i>) provides a mechanism to check configurations, vulnerability management and evaluate policy compliance for a variety of systems. One of the most popular implementations of SCAP is <b>OpenSCAP</b> and it is very helpful for vulnerability assessment and also as hardening helper.
 
-Some of the external audit tools use this standard. For example Nessus has functionality for authenticated SCAP scans.
+Some of the external audit tools use this standard. For example Nessus has functionality for authenticated SCAP scans.</p>
 
-I tried to make this list fully compatible with OpenSCAP standard and rules.
-</p>
+  > I tried to make this list fully compatible with OpenSCAP standard and rules.
