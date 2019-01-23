@@ -30,10 +30,6 @@
 
 <br>
 
-<p align="center">All suggestions and pull requests are welcome!</p>
-
-<br>
-
 ****
 
 ## Table Of Content
