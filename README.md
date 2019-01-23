@@ -38,15 +38,15 @@
   * [General disclaimer](#general-disclaimer)
   * [Levels of priority](#levels-of-priority)
   * [OpenSCAP](#openscap)
-- **[Encryption & Partitioning](#encryption--partitioning)**
-- **[Bootloader Configuration](#bootloader-configuration)**
+- **[Partitioning](#partitioning)**
+- **[Bootloader](#bootloader)**
 - **[Linux Kernel](#linux-kernel)**
 - **[Logging](#logging)**
 - **[Users and Groups](#users-and-groups)**
 - **[Permissions](#permissions)**
 - **[SELinux & Auditd](#selinux--auditd)**
 - **[System Updates](#system-updates)**
-- **[Network Configuration](#network-configuration)**
+- **[Network](#network)**
 - **[Services](#services)**
 - **[Tools](#tools)**
 
@@ -76,9 +76,19 @@ Some of the external audit tools use this standard. For example Nessus has funct
 
   > I tried to make this list fully compatible with OpenSCAP standard and rules.
 
-# Encryption & Partitioning
+# Partitioning
 
-# Bootloader Configuration
+## Partitioning
+
+### /boot partition
+
+**Priority:** <img src="https://github.com/trimstray/working-template/blob/master/doc/img/low.png" alt="low">
+
+**Rationale:**
+
+The idea behind the `/boot` partition was to make the partition always accessible to any machine that the drive was plugged into. As modern machines have lifted that restriction, there is no longer a fixed need for `/boot` to be separate, unless you require additional processing of the other partitions, such as encryption or file systems that are not natively recognized by the bootloader.
+
+# Bootloader
 
 # Linux Kernel
 
@@ -92,7 +102,7 @@ Some of the external audit tools use this standard. For example Nessus has funct
 
 # System Updates
 
-# Network Configuration
+# Network
 
 # Services
 
