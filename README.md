@@ -32,11 +32,23 @@
 
 ****
 
-## Table Of Content
+## Table of Contents
 
-- **[Pre install tasks](#pre-install-tasks)**
-  * **[Physical system security](#physical-system-security)**
+- **[Introduction](#introduction)**
+  * [How to use?](#how-to-use)
     + [Introduction](#information_source-introduction)
     + [Secure rooms](#eight_pointed_black_star-secure-rooms)
 
 :collision: Work in progress...
+
+# Introduction
+
+  > In computing, hardening is usually the process of securing a system by reducing its surface of vulnerability, which is larger when a system performs more functions; in principle a single-function system is more secure than a multipurpose one. The main goal of systems hardening is to reduce security risk by eliminating potential attack vectors and condensing the system’s attack surface.
+
+## How to use?
+
+All items in this checklist contains three levels of priority:
+
+* ![Low][low] means that the item has a **low** priority.
+* ![Medium][medium] means that the item has a **medium** priority. You shouldn't avoid tackling that item.
+* ![High][high] means that the item has a **high** priority. You can't avoid following that rule and implement the corrections recommended.
