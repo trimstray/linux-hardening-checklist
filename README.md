@@ -88,11 +88,11 @@ Some of the external audit tools use this standard. For example Nessus has funct
 
 # Partitioning
 
-### `/boot` partition
+### :small_red_triangle: `/boot` partition
 
-- **Rule:** Ensure `/boot` located on separate partition. <img src="https://github.com/trimstray/working-template/blob/master/doc/img/low.png" alt="low">
+- <img src="https://github.com/trimstray/working-template/blob/master/doc/img/low.png" alt="low"> Ensure `/boot` located on separate partition.
 
-- **Rule:** Restrict `/boot` partition mount options. <img src="https://github.com/trimstray/working-template/blob/master/doc/img/medium.png" alt="medium">
+- <img src="https://github.com/trimstray/working-template/blob/master/doc/img/medium.png" alt="medium"> Restrict `/boot` partition mount options.
 
     **Example:**
 
@@ -100,11 +100,11 @@ Some of the external audit tools use this standard. For example Nessus has funct
     LABEL=/boot  /boot  ext2  defaults,nodev,nosuid,noexec,ro  1 2
     ```
 
-### `/home` partition
+### :small_red_triangle: `/home` partition
 
-- **Rule:** Ensure `/home` located on separate partition. <img src="https://github.com/trimstray/working-template/blob/master/doc/img/low.png" alt="low">
+- <img src="https://github.com/trimstray/working-template/blob/master/doc/img/low.png" alt="low"> Ensure `/home` located on separate partition.
 
-- **Rule:** Restrict `/home` partition mount options. <img src="https://github.com/trimstray/working-template/blob/master/doc/img/medium.png" alt="medium">
+- <img src="https://github.com/trimstray/working-template/blob/master/doc/img/medium.png" alt="medium"> Restrict `/home` partition mount options.
 
     **Example:**
 
@@ -112,11 +112,11 @@ Some of the external audit tools use this standard. For example Nessus has funct
     UUID=<...>  /home  ext4  defaults,nodev,nosuid  0 2
     ```
 
-### `/usr` partition
+### :small_red_triangle: `/usr` partition
 
-- **Rule:** Ensure `/usr` located on separate partition. <img src="https://github.com/trimstray/working-template/blob/master/doc/img/low.png" alt="low">
+- <img src="https://github.com/trimstray/working-template/blob/master/doc/img/low.png" alt="low"> Ensure `/usr` located on separate partition.
 
-- **Rule:** Restrict `/usr` partition mount options. <img src="https://github.com/trimstray/working-template/blob/master/doc/img/low.png" alt="low">
+- <img src="https://github.com/trimstray/working-template/blob/master/doc/img/low.png" alt="low"> Restrict `/usr` partition mount options.
 
     **Example:**
 
@@ -124,11 +124,11 @@ Some of the external audit tools use this standard. For example Nessus has funct
     UUID=<...>  /usr  ext4  defaults,nodev,ro  0 2
     ```
 
-### `/var` partition
+### :small_red_triangle: `/var` partition
 
-- **Rule:** Ensure `/var` located on separate partition. <img src="https://github.com/trimstray/working-template/blob/master/doc/img/high.png" alt="high">
+- <img src="https://github.com/trimstray/working-template/blob/master/doc/img/high.png" alt="high"> Ensure `/var` located on separate partition.
 
-- **Rule:** Restrict `/var` partition mount options. <img src="https://github.com/trimstray/working-template/blob/master/doc/img/low.png" alt="low">
+- <img src="https://github.com/trimstray/working-template/blob/master/doc/img/low.png" alt="low"> Restrict `/var` partition mount options.
 
     **Example:**
 
@@ -136,11 +136,11 @@ Some of the external audit tools use this standard. For example Nessus has funct
     UUID=<...>  /var  ext4  defaults,nosuid  0 2
     ```
 
-### `/var/log` and `/var/log/audit` partitions
+### :small_red_triangle: `/var/log` and `/var/log/audit` partitions
 
-- **Rule:** Ensure `/var/log` and `/var/log/audit` located on separate partitions. <img src="https://github.com/trimstray/working-template/blob/master/doc/img/high.png" alt="high">
+- <img src="https://github.com/trimstray/working-template/blob/master/doc/img/high.png" alt="high"> Ensure `/var/log` and `/var/log/audit` located on separate partitions.
 
-- **Rule:** Restrict `/var` partition mount options. <img src="https://github.com/trimstray/working-template/blob/master/doc/img/low.png" alt="low">
+- <img src="https://github.com/trimstray/working-template/blob/master/doc/img/low.png" alt="low"> Restrict `/var` partition mount options.
 
     **Example:**
 
@@ -149,11 +149,11 @@ Some of the external audit tools use this standard. For example Nessus has funct
     UUID=<...>  /var/log/audit  ext4  defaults,nosuid,noexec,nodev  0 2
     ```
 
-### `/tmp` and `/var/tmp` partitions
+### :small_red_triangle: `/tmp` and `/var/tmp` partitions
 
-- **Rule:** Ensure `/tmp` and `/var/tmp` located on separate partitions. <img src="https://github.com/trimstray/working-template/blob/master/doc/img/high.png" alt="high">
+- <img src="https://github.com/trimstray/working-template/blob/master/doc/img/high.png" alt="high"> Ensure `/tmp` and `/var/tmp` located on separate partitions.
 
-- **Rule:** Restrict `/var` and `/var/tmp` partitions mount options. <img src="https://github.com/trimstray/working-template/blob/master/doc/img/medium.png" alt="medium">
+- <img src="https://github.com/trimstray/working-template/blob/master/doc/img/medium.png" alt="medium"> Restrict `/var` and `/var/tmp` partitions mount options.
 
     **Example:**
 
@@ -165,7 +165,7 @@ Some of the external audit tools use this standard. For example Nessus has funct
     UUID=<...>  /tmp  ext4  defaults,nodev,nosuid,noexec  0 2
     ```
 
-- **Rule:** Setting up polyinstantiated `/var` and `/var/tmp` directories. <img src="https://github.com/trimstray/working-template/blob/master/doc/img/medium.png" alt="medium">
+- <img src="https://github.com/trimstray/working-template/blob/master/doc/img/medium.png" alt="medium"> Setting up polyinstantiated `/var` and `/var/tmp` directories.
 
     **Example:**
 
@@ -187,9 +187,9 @@ Some of the external audit tools use this standard. For example Nessus has funct
     chcon --reference=/var/tmp/ /var/tmp/tmp-inst
     ```
 
-### `/dev/shm` shared memory
+### :small_red_triangle: `/dev/shm` shared memory
 
-- **Rule:** Restrict `/dev/shm` partition mount options. <img src="https://github.com/trimstray/working-template/blob/master/doc/img/medium.png" alt="medium">
+- <img src="https://github.com/trimstray/working-template/blob/master/doc/img/medium.png" alt="medium"> Restrict `/dev/shm` partition mount options.
 
     **Example:**
 
@@ -197,7 +197,7 @@ Some of the external audit tools use this standard. For example Nessus has funct
     tmpfs  /dev/shm  tmpfs  rw,nodev,nosuid,noexec,size=1024M,mode=1777 0 0
     ```
 
-- **Rule:** Set group for `/dev/shm`. <img src="https://github.com/trimstray/working-template/blob/master/doc/img/low.png" alt="low">
+- <img src="https://github.com/trimstray/working-template/blob/master/doc/img/low.png" alt="low"> Set group for `/dev/shm`.
 
     **Example:**
 
@@ -205,9 +205,9 @@ Some of the external audit tools use this standard. For example Nessus has funct
     tmpfs  /dev/shm  tmpfs  rw,nodev,nosuid,noexec,size=1024M,mode=1770,uid=root,gid=shm 0 0
     ```
 
-### `/proc` filesystem
+### :small_red_triangle: `/proc` filesystem
 
-- **Rule:** Restrict `/prod` partition mount options. <img src="https://github.com/trimstray/working-template/blob/master/doc/img/low.png" alt="low">
+- <img src="https://github.com/trimstray/working-template/blob/master/doc/img/low.png" alt="low"> Restrict `/prod` partition mount options.
 
     **Example:**
 
@@ -215,9 +215,9 @@ Some of the external audit tools use this standard. For example Nessus has funct
     proc  /proc  proc  defaults,hidepid=2  0 0
     ```
 
-### `swap` partition
+### :small_red_triangle: `swap` partition
 
-- **Rule:** Encrypt `swap` partition. <img src="https://github.com/trimstray/working-template/blob/master/doc/img/low.png" alt="low">
+- <img src="https://github.com/trimstray/working-template/blob/master/doc/img/low.png" alt="low"> Encrypt `swap` partition.
 
     **Example:**
 
@@ -232,9 +232,9 @@ Some of the external audit tools use this standard. For example Nessus has funct
 
 # Bootloader
 
-### Protect bootloader config files
+### :small_red_triangle: Protect bootloader config files
 
-- **Rule:** Ensure bootloader config files are set properly permissions. <img src="https://github.com/trimstray/working-template/blob/master/doc/img/low.png" alt="low">
+- <img src="https://github.com/trimstray/working-template/blob/master/doc/img/low.png" alt="low"> Ensure bootloader config files are set properly permissions.
 
     **Example:**
 
