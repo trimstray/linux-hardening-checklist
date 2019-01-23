@@ -84,73 +84,73 @@ Some of the external audit tools use this standard. For example Nessus has funct
 
 :bookmark: &nbsp;**Rule:** Ensure `/boot` located on separate partition. <img src="https://github.com/trimstray/working-template/blob/master/doc/img/low.png" alt="low">
 
-**Rationale:**
+    **Rationale:**
 
-The idea behind the `/boot` partition was to make the partition always accessible to any machine that the drive was plugged into. As modern machines have lifted that restriction, there is no longer a fixed need for `/boot` to be separate, unless you require additional processing of the other partitions, such as encryption or file systems that are not natively recognized by the bootloader.
+    The idea behind the `/boot` partition was to make the partition always accessible to any machine that the drive was plugged into. As modern machines have lifted that restriction, there is no longer a fixed need for `/boot` to be separate, unless you require additional processing of the other partitions, such as encryption or file systems that are not natively recognized by the bootloader.
 
 :bookmark: &nbsp;**Rule:** Restrict `/boot` partition mount options. <img src="https://github.com/trimstray/working-template/blob/master/doc/img/medium.png" alt="medium">
 
-**Rationale:**
+    **Rationale:**
 
-The boot directory contains important files related to the Linux kernel, so you need to make sure that this directory is locked down to read-only permissions.
+    The boot directory contains important files related to the Linux kernel, so you need to make sure that this directory is locked down to read-only permissions.
 
-**Example:**
+    **Example:**
 
-```bash
-LABEL=/boot  /boot  ext2  defaults,ro,nodev,nosuid,noexec  1 2
-```
+    ```bash
+    LABEL=/boot  /boot  ext2  defaults,ro,nodev,nosuid,noexec  1 2
+    ```
 
 ### `/tmp` and `/var/tmp` partitions
 
 :bookmark: &nbsp;**Rule:** Ensure `/tmp` and `/var/tmp` located on separate partitions. <img src="https://github.com/trimstray/working-template/blob/master/doc/img/high.png" alt="high">
 
-**Rationale:**
+    **Rationale:**
 
-Several daemons/applications use the `/tmp` or `/var/tmp` directories to temporarily store data, log information, or to share information between their sub-components. However, due to the shared nature of these directories, several attacks are possible.
+    Several daemons/applications use the `/tmp` or `/var/tmp` directories to temporarily store data, log information, or to share information between their sub-components. However, due to the shared nature of these directories, several attacks are possible.
 
 :bookmark: &nbsp;**Rule:** Restrict `/var` and `/var/tmp` partitions mount options. <img src="https://github.com/trimstray/working-template/blob/master/doc/img/medium.png" alt="medium">
 
-**Rationale:**
+    **Rationale:**
 
-Several daemons/applications use the `/tmp` or `/var/tmp` directories to temporarily store data, log information, or to share information between their sub-components.
+    Several daemons/applications use the `/tmp` or `/var/tmp` directories to temporarily store data, log information, or to share information between their sub-components.
 
-**Example:**
+    **Example:**
 
-```bash
-mv /var/tmp /var/tmp.old
-ln -s /tmp /var/tmp
-cp -prf /var/tmp.old/* /tmp && rm -fr /var/tmp.old
+    ```bash
+    mv /var/tmp /var/tmp.old
+    ln -s /tmp /var/tmp
+    cp -prf /var/tmp.old/* /tmp && rm -fr /var/tmp.old
 
-UUID=<...>  /tmp  ext4  defaults,nodev,nosuid,noexec  1 2
-```
+    UUID=<...>  /tmp  ext4  defaults,nodev,nosuid,noexec  1 2
+    ```
 
 :bookmark: &nbsp;**Rule:** Setting up polyinstantiated `/var` and `/var/tmp` directories. <img src="https://github.com/trimstray/working-template/blob/master/doc/img/medium.png" alt="medium">
 
-**Rationale:**
+    **Rationale:**
 
-Due to the shared nature of these directories, several attacks are possible. SELinux offers a solution in the form of polyinstantiated directories. This effectively means that both `/tmp/` and `/var/tmp/` are instantiated, making them appear private for each user.
+    Due to the shared nature of these directories, several attacks are possible. SELinux offers a solution in the form of polyinstantiated directories. This effectively means that both `/tmp/` and `/var/tmp/` are instantiated, making them appear private for each user.
 
-**Example:**
+    **Example:**
 
-```bash
-# Create new directories:
+    ```bash
+    # Create new directories:
 
-mkdir --mode 000 /tmp-inst
-mkdir --mode 000 /var/tmp/tmp-inst
+    mkdir --mode 000 /tmp-inst
+    mkdir --mode 000 /var/tmp/tmp-inst
 
-# Edit /etc/security/namespace.conf:
+    # Edit /etc/security/namespace.conf:
 
-/tmp      /tmp-inst/          level  root,adm
-/var/tmp  /var/tmp/tmp-inst/  level  root,adm
+    /tmp      /tmp-inst/          level  root,adm
+    /var/tmp  /var/tmp/tmp-inst/  level  root,adm
 
-# Set correct SELinux context:
+    # Set correct SELinux context:
 
-setsebool polyinstantiation_enabled=1
-chcon --reference=/tmp /tmp-inst
-chcon --reference=/var/tmp/ /var/tmp/tmp-inst
-```
+    setsebool polyinstantiation_enabled=1
+    chcon --reference=/tmp /tmp-inst
+    chcon --reference=/var/tmp/ /var/tmp/tmp-inst
+    ```
 
-**Comment:**
+  **Comment:**
 
   > Don't do this for `/var/tmp` if this directory is mounted in `/tmp`.
 
