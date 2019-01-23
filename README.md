@@ -46,7 +46,10 @@
   * [`/var/log` and `/var/log/audit` partitions](#varlog-and-varlogaudit-partitions)
   * [`/tmp` and `/var/tmp` partitions](#tmp-and-vartmp-partitions)
   * [`/dev/shm` shared memory](#devshm-shared-memory)
+  * [`/proc` filesystem](#proc-filesystem)
+  * [`swap` partition](#swap-partition)
 - **[Bootloader](#bootloader)**
+  * [Protect bootloader config files](#protect-bootloader-config-files)
 - **[Linux Kernel](#linux-kernel)**
 - **[Logging](#logging)**
 - **[Users and Groups](#users-and-groups)**
