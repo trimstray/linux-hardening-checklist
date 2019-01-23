@@ -270,7 +270,60 @@ Some of the external audit tools use this standard. For example Nessus has funct
     tmpfs  /dev/shm  tmpfs  rw,nodev,nosuid,noexec,size=1024M,mode=1770,uid=root,gid=shm 0 0
     ```
 
+### `/proc` filesystem
+
+- **Rule:** Restrict `/prod` partition mount options. <img src="https://github.com/trimstray/working-template/blob/master/doc/img/low.png" alt="low">
+
+    **Rationale:**
+
+    > The proc pseudo-filesystem `/proc` should be mounted with hidepid. When setting hidepid to 2, directories entries in `/proc` will hidden.
+
+    **Example:**
+
+    ```bash
+    proc  /proc  proc  defaults,hidepid=2  0 0
+    ```
+
+### `swap` partition
+
+- **Rule:** Encrypted `swap` partition. <img src="https://github.com/trimstray/working-template/blob/master/doc/img/low.png" alt="low">
+
+    **Rationale:**
+
+    > The swap partition can hold a lot of unencrypted confidential information and the fact that it persists after shutting down the server can be a problem.
+
+    **Example:**
+
+    ```bash
+    # Edit /etc/crypttab:
+    sdb1_crypt /dev/sdb1 /dev/urandom cipher=aes-xts-plain64,size=256,swap,discard
+
+    # Edit /etc/fstab:
+
+    /dev/mapper/sdb1_crypt none swap sw 0 0
+    ```
+
 # Bootloader
+
+### Protect bootloader config files
+
+- **Rule:** Ensure bootloader config files are set properly permissions. <img src="https://github.com/trimstray/working-template/blob/master/doc/img/low.png" alt="low">
+
+    **Rationale:**
+
+    > Setting the permissions to read and write for root only prevents non-root users from seeing the boot parameters or changing them.
+
+    **Example:**
+
+    ```bash
+    # Set the owner and group of /etc/grub.conf to the root user:
+    chown root:root /etc/grub.conf
+    chown -R root:root /etc/grub.d
+
+    # Set permissions on the /etc/grub.conf or /etc/grub.d file to read and write for root only:
+    chmod og-rwx /etc/grub.conf
+    chmod -R og-rwx /etc/grub.d
+    ```
 
 # Linux Kernel
 
