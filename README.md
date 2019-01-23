@@ -80,17 +80,13 @@ Some of the external audit tools use this standard. For example Nessus has funct
 
 ### `/boot` partition
 
-:bookmark: &nbsp;**Rule:** Ensure `/boot` located on separate partition.
-
-**Priority:** <img src="https://github.com/trimstray/working-template/blob/master/doc/img/low.png" alt="low">
+:bookmark: &nbsp;**Rule:** Ensure `/boot` located on separate partition. <img src="https://github.com/trimstray/working-template/blob/master/doc/img/low.png" alt="low">
 
 **Rationale:**
 
 The idea behind the `/boot` partition was to make the partition always accessible to any machine that the drive was plugged into. As modern machines have lifted that restriction, there is no longer a fixed need for `/boot` to be separate, unless you require additional processing of the other partitions, such as encryption or file systems that are not natively recognized by the bootloader.
 
-:bookmark: &nbsp;**Rule:** Restrict `/boot` partition mount options
-
-**Priority:** <img src="https://github.com/trimstray/working-template/blob/master/doc/img/medium.png" alt="medium">
+:bookmark: &nbsp;**Rule:** Restrict `/boot` partition mount options <img src="https://github.com/trimstray/working-template/blob/master/doc/img/medium.png" alt="medium">
 
 **Rationale:**
 
