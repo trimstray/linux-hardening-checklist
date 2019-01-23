@@ -36,6 +36,7 @@
 
 - **[Introduction](#introduction)**
   * [How to use?](#how-to-use)
+  * [OpenSCAP](#openscap)
     + [Introduction](#information_source-introduction)
     + [Secure rooms](#eight_pointed_black_star-secure-rooms)
 
@@ -52,3 +53,7 @@ All items in this checklist contains three levels of priority:
 * <img src="https://github.com/trimstray/working-template/blob/master/doc/img/low.png" alt="low"> means that the item has a **low** priority.
 * <img src="https://github.com/trimstray/working-template/blob/master/doc/img/medium.png" alt="medium"> means that the item has a **medium** priority. You shouldn't avoid tackling that item.
 * <img src="https://github.com/trimstray/working-template/blob/master/doc/img/high.png" alt="high"> means that the item has a **high** priority. You can't avoid following that rule and implement the corrections recommended.
+
+## OpenSCAP
+
+**SCAP** (_Security Content Automation Protocol_) provides a mechanism to check configurations, vulnerability management and evaluate policy compliance for a variety of systems. One of the most popular implementations of SCAP is **OpenSCAP** and it is very helpful for vulnerability assessment and also as hardening helper.
