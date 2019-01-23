@@ -43,8 +43,9 @@
   * [`/home` partition](#home-partition)
   * [`/usr` partition](#usr-partition)
   * [`/var` partition](#var-partition)
-  * [`/var/log` and `/var/log/audit` partitions](#varlog-and-varlogaudit-partition)
+  * [`/var/log` and `/var/log/audit` partitions](#varlog-and-varlogaudit-partitions)
   * [`/tmp` and `/var/tmp` partitions](#tmp-and-vartmp-partitions)
+  * [`/dev/shm` shared memory](#devshm-shared-memory)
 - **[Bootloader](#bootloader)**
 - **[Linux Kernel](#linux-kernel)**
 - **[Logging](#logging)**
@@ -101,7 +102,7 @@ Some of the external audit tools use this standard. For example Nessus has funct
     **Example:**
 
     ```bash
-    LABEL=/boot  /boot  ext2  defaults,ro,nodev,nosuid,noexec  1 2
+    LABEL=/boot  /boot  ext2  defaults,nodev,nosuid,noexec,ro  1 2
     ```
 
 ### `/home` partition
@@ -242,6 +243,32 @@ Some of the external audit tools use this standard. For example Nessus has funct
     **Comment:**
 
     > Don't do this for `/var/tmp` if this directory is mounted in `/tmp`.
+
+### `/dev/shm` shared memory
+
+- **Rule:** Restrict `/dev/shm` partition mount options. <img src="https://github.com/trimstray/working-template/blob/master/doc/img/medium.png" alt="medium">
+
+    **Rationale:**
+
+    > One of the major security issue with the `/dev/shm` is anyone can upload and execute files inside the `/dev/shm` similar to the `/tmp` partition. Further the size should be limited to avoid an attacker filling up this mountpoint to the point where applications could be affected. (normally it allows 20% or more of RAM to be used). The sticky bit should be set like for any world writeable directory.
+
+    **Example:**
+
+    ```bash
+    tmpfs  /dev/shm  tmpfs  rw,nodev,nosuid,noexec,size=1024M,mode=1777 0 0
+    ```
+
+- **Rule:** Set group for `/dev/shm`. <img src="https://github.com/trimstray/working-template/blob/master/doc/img/low.png" alt="low">
+
+    **Rationale:**
+
+    > You can also create a group named 'shm' and put application users for SHM-using applications in there.
+
+    **Example:**
+
+    ```bash
+    tmpfs  /dev/shm  tmpfs  rw,nodev,nosuid,noexec,size=1024M,mode=1770,uid=root,gid=shm 0 0
+    ```
 
 # Bootloader
 
