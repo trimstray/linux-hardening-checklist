@@ -78,11 +78,11 @@ Some of the external audit tools use this standard. For example Nessus has funct
 
 # Partitioning
 
-## Partitioning
-
-### /boot partition
+### `/boot` partition
 
 **Priority:** <img src="https://github.com/trimstray/working-template/blob/master/doc/img/low.png" alt="low">
+
+**Rule:** Ensure `/boot` located on separate partition
 
 **Rationale:**
 
