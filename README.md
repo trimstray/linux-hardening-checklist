@@ -45,7 +45,7 @@
 
 ## General disclaimer
 
-:warning: &nbsp;&nbsp;I recommend is to always turn a feature from this checklist on in pre-production environments instead of jumping directly into production.
+I'm not advocating throwing your existing hardening and deployment best practices out the door but I recommend is to always turn a feature from this checklist on in pre-production environments instead of jumping directly into production.
 
 ## Levels of priority
 
