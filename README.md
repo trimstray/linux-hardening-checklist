@@ -80,13 +80,27 @@ Some of the external audit tools use this standard. For example Nessus has funct
 
 ### `/boot` partition
 
-**Priority:** <img src="https://github.com/trimstray/working-template/blob/master/doc/img/low.png" alt="low">
+**Rule:** Ensure `/boot` located on separate partition.
 
-**Rule:** Ensure `/boot` located on separate partition
+**Priority:** <img src="https://github.com/trimstray/working-template/blob/master/doc/img/low.png" alt="low">
 
 **Rationale:**
 
 The idea behind the `/boot` partition was to make the partition always accessible to any machine that the drive was plugged into. As modern machines have lifted that restriction, there is no longer a fixed need for `/boot` to be separate, unless you require additional processing of the other partitions, such as encryption or file systems that are not natively recognized by the bootloader.
+
+**Rule:** Restrict `/boot` partition mount options
+
+**Priority:** <img src="https://github.com/trimstray/working-template/blob/master/doc/img/medium.png" alt="medium">
+
+**Rationale:**
+
+The boot directory contains important files related to the Linux kernel, so you need to make sure that this directory is locked down to read-only permissions.
+
+**Example:**
+
+```bash
+LABEL=/boot  /boot  ext2  defaults,ro,nodev,nosuid,noexec  1 2
+```
 
 # Bootloader
 
