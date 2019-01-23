@@ -38,6 +38,17 @@
   * [General disclaimer](#general-disclaimer)
   * [Levels of priority](#levels-of-priority)
   * [OpenSCAP](#openscap)
+- **[Encryption & Partitioning](#encryption---partitioning)**
+- **[Bootloader Configuration](#bootloader-configuration)**
+- **[Linux Kernel](#linux-kernel)**
+- **[Logging](#logging)**
+- **[Users and Groups](#users-and-groups)**
+- **[Permissions](#permissions)**
+- **[SELinux & Auditd](#selinux---auditd)**
+- **[System Updates](#system-updates)**
+- **[Network Configuration](#network-configuration)**
+- **[Services](#services)**
+- **[Tools](#tools)**
 
 # Introduction
 
@@ -64,3 +75,25 @@ All items in this checklist contains three levels of priority:
 Some of the external audit tools use this standard. For example Nessus has functionality for authenticated SCAP scans.</p>
 
   > I tried to make this list fully compatible with OpenSCAP standard and rules.
+
+# Encryption & Partitioning
+
+# Bootloader Configuration
+
+# Linux Kernel
+
+# Logging
+
+# Users and Groups
+
+# Permissions
+
+# SELinux & Auditd
+
+# System Updates
+
+# Network Configuration
+
+# Services
+
+# Tools
