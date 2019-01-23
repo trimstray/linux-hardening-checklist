@@ -38,13 +38,13 @@
   * [General disclaimer](#general-disclaimer)
   * [Levels of priority](#levels-of-priority)
   * [OpenSCAP](#openscap)
-- **[Encryption & Partitioning](#encryption---partitioning)**
+- **[Encryption & Partitioning](#encryption--partitioning)**
 - **[Bootloader Configuration](#bootloader-configuration)**
 - **[Linux Kernel](#linux-kernel)**
 - **[Logging](#logging)**
 - **[Users and Groups](#users-and-groups)**
 - **[Permissions](#permissions)**
-- **[SELinux & Auditd](#selinux---auditd)**
+- **[SELinux & Auditd](#selinux--auditd)**
 - **[System Updates](#system-updates)**
 - **[Network Configuration](#network-configuration)**
 - **[Services](#services)**
