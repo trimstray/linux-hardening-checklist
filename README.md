@@ -40,6 +40,10 @@
   * [OpenSCAP](#openscap)
 - **[Partitioning](#partitioning)**
   * [`/boot` partition](#boot-partition)
+  * [`/home` partition](#home-partition)
+  * [`/usr` partition](#usr-partition)
+  * [`/var` partition](#var-partition)
+  * [`/var/log` and `/var/log/audit` partitions](#varlog-and-varlogaudit-partition)
   * [`/tmp` and `/var/tmp` partitions](#tmp-and-vartmp-partitions)
 - **[Bootloader](#bootloader)**
 - **[Linux Kernel](#linux-kernel)**
@@ -100,6 +104,91 @@ Some of the external audit tools use this standard. For example Nessus has funct
     LABEL=/boot  /boot  ext2  defaults,ro,nodev,nosuid,noexec  1 2
     ```
 
+### `/home` partition
+
+- **Rule:** Ensure `/home` located on separate partition. <img src="https://github.com/trimstray/working-template/blob/master/doc/img/low.png" alt="low">
+
+    **Rationale:**
+
+    > Filling up the `/home` partition does not result in the main filesystem crashing or being unable to update. You can also re-install at any time or make data retrieval easier in the case of a crash. `/home` could be mounted to give users their home directories, with all their data files.
+
+- **Rule:** Restrict `/home` partition mount options. <img src="https://github.com/trimstray/working-template/blob/master/doc/img/medium.png" alt="medium">
+
+    **Rationale:**
+
+    > Users can create shared directories and execute scripts.
+
+    **Example:**
+
+    ```bash
+    UUID=<...>  /home  ext4  defaults,nodev,nosuid  0 2
+    ```
+
+### `/usr` partition
+
+- **Rule:** Ensure `/usr` located on separate partition. <img src="https://github.com/trimstray/working-template/blob/master/doc/img/low.png" alt="low">
+
+    **Rationale:**
+
+    > Some additional reasoning for isolating `/usr`, is for making it easier to deploy identical systems, these partitions can be prepared one time and then replicated across systems more easily.
+
+- **Rule:** Restrict `/usr` partition mount options. <img src="https://github.com/trimstray/working-template/blob/master/doc/img/low.png" alt="low">
+
+    **Rationale:**
+
+    > It can be mounted read-only, offering a level of protection to the data under this directory so that it cannot be tampered with so easily.
+
+    **Example:**
+
+    ```bash
+    UUID=<...>  /usr  ext4  defaults,nodev,ro  0 2
+    ```
+
+### `/var` partition
+
+- **Rule:** Ensure `/var` located on separate partition. <img src="https://github.com/trimstray/working-template/blob/master/doc/img/high.png" alt="high">
+
+    **Rationale:**
+
+    > `/var` can be filled up by user programs or daemons. Therefore it can be safe to have these in separate partitions that would prevent `/`, the root partition, to be 100% full, and would hit your system badly.
+
+- **Rule:** Restrict `/var` partition mount options. <img src="https://github.com/trimstray/working-template/blob/master/doc/img/low.png" alt="low">
+
+    **Rationale:**
+
+    > This helps protect system services such as daemons or other programs which use it.
+
+    **Example:**
+
+    ```bash
+    UUID=<...>  /var  ext4  defaults,nosuid  0 2
+    ```
+
+    **Comment:**
+
+    > Some programs (like mail-mta/netqmail) will not be able to work properly if `/var` has `noexec` and `nosuid`. Consider removing those options if they cause problems.
+
+### `/var/log` and `/var/log/audit` partitions
+
+- **Rule:** Ensure `/var/log` and `/var/log/audit` located on separate partitions. <img src="https://github.com/trimstray/working-template/blob/master/doc/img/high.png" alt="high">
+
+    **Rationale:**
+
+    > There are two important reasons to ensure that system logs are stored on a separate partition: protection against resource exhaustion (since logs can grow quite large) and protection of audit data.
+
+- **Rule:** Restrict `/var` partition mount options. <img src="https://github.com/trimstray/working-template/blob/master/doc/img/low.png" alt="low">
+
+    **Rationale:**
+
+    > This helps protect system services such as daemons or other programs which use it.
+
+    **Example:**
+
+    ```bash
+    UUID=<...>  /var/log        ext4  defaults,nosuid,noexec,nodev  0 2
+    UUID=<...>  /var/log/audit  ext4  defaults,nosuid,noexec,nodev  0 2
+    ```
+
 ### `/tmp` and `/var/tmp` partitions
 
 - **Rule:** Ensure `/tmp` and `/var/tmp` located on separate partitions. <img src="https://github.com/trimstray/working-template/blob/master/doc/img/high.png" alt="high">
@@ -121,7 +210,7 @@ Some of the external audit tools use this standard. For example Nessus has funct
     ln -s /tmp /var/tmp
     cp -prf /var/tmp.old/* /tmp && rm -fr /var/tmp.old
 
-    UUID=<...>  /tmp  ext4  defaults,nodev,nosuid,noexec  1 2
+    UUID=<...>  /tmp  ext4  defaults,nodev,nosuid,noexec  0 2
     ```
 
 - **Rule:** Setting up polyinstantiated `/var` and `/var/tmp` directories. <img src="https://github.com/trimstray/working-template/blob/master/doc/img/medium.png" alt="medium">
@@ -153,30 +242,6 @@ Some of the external audit tools use this standard. For example Nessus has funct
     **Comment:**
 
     > Don't do this for `/var/tmp` if this directory is mounted in `/tmp`.
-
-### `/var` partition
-
-- **Rule:** Ensure `/var` located on separate partition. <img src="https://github.com/trimstray/working-template/blob/master/doc/img/high.png" alt="high">
-
-    **Rationale:**
-
-    > `/var` can be filled up by user programs or daemons. Therefore it can be safe to have these in separate partitions that would prevent `/`, the root partition, to be 100% full, and would hit your system badly.
-
-- **Rule:** Restrict `/var` partition mount options. <img src="https://github.com/trimstray/working-template/blob/master/doc/img/low.png" alt="low">
-
-    **Rationale:**
-
-    This helps protect system services such as daemons or other programs which use it.
-
-    **Example:**
-
-    ```bash
-    UUID=<...>  /var  ext4  defaults,nosuid  1 2
-    ```
-
-    **Comment:**
-
-    > Some programs (like mail-mta/netqmail) will not be able to work properly if `/var` has `noexec` and `nosuid`. Consider removing those options if they cause problems.
 
 # Bootloader
 
