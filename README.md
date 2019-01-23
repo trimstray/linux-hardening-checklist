@@ -82,13 +82,13 @@ Some of the external audit tools use this standard. For example Nessus has funct
 
 ### `/boot` partition
 
-:bookmark: &nbsp;**Rule:** Ensure `/boot` located on separate partition. <img src="https://github.com/trimstray/working-template/blob/master/doc/img/low.png" alt="low">
+- :bookmark: &nbsp;**Rule:** Ensure `/boot` located on separate partition. <img src="https://github.com/trimstray/working-template/blob/master/doc/img/low.png" alt="low">
 
     **Rationale:**
 
     The idea behind the `/boot` partition was to make the partition always accessible to any machine that the drive was plugged into. As modern machines have lifted that restriction, there is no longer a fixed need for `/boot` to be separate, unless you require additional processing of the other partitions, such as encryption or file systems that are not natively recognized by the bootloader.
 
-:bookmark: &nbsp;**Rule:** Restrict `/boot` partition mount options. <img src="https://github.com/trimstray/working-template/blob/master/doc/img/medium.png" alt="medium">
+- :bookmark: &nbsp;**Rule:** Restrict `/boot` partition mount options. <img src="https://github.com/trimstray/working-template/blob/master/doc/img/medium.png" alt="medium">
 
     **Rationale:**
 
@@ -102,13 +102,13 @@ Some of the external audit tools use this standard. For example Nessus has funct
 
 ### `/tmp` and `/var/tmp` partitions
 
-:bookmark: &nbsp;**Rule:** Ensure `/tmp` and `/var/tmp` located on separate partitions. <img src="https://github.com/trimstray/working-template/blob/master/doc/img/high.png" alt="high">
+- :bookmark: &nbsp;**Rule:** Ensure `/tmp` and `/var/tmp` located on separate partitions. <img src="https://github.com/trimstray/working-template/blob/master/doc/img/high.png" alt="high">
 
     **Rationale:**
 
     Several daemons/applications use the `/tmp` or `/var/tmp` directories to temporarily store data, log information, or to share information between their sub-components. However, due to the shared nature of these directories, several attacks are possible.
 
-:bookmark: &nbsp;**Rule:** Restrict `/var` and `/var/tmp` partitions mount options. <img src="https://github.com/trimstray/working-template/blob/master/doc/img/medium.png" alt="medium">
+- :bookmark: &nbsp;**Rule:** Restrict `/var` and `/var/tmp` partitions mount options. <img src="https://github.com/trimstray/working-template/blob/master/doc/img/medium.png" alt="medium">
 
     **Rationale:**
 
@@ -124,7 +124,7 @@ Some of the external audit tools use this standard. For example Nessus has funct
     UUID=<...>  /tmp  ext4  defaults,nodev,nosuid,noexec  1 2
     ```
 
-:bookmark: &nbsp;**Rule:** Setting up polyinstantiated `/var` and `/var/tmp` directories. <img src="https://github.com/trimstray/working-template/blob/master/doc/img/medium.png" alt="medium">
+- :bookmark: &nbsp;**Rule:** Setting up polyinstantiated `/var` and `/var/tmp` directories. <img src="https://github.com/trimstray/working-template/blob/master/doc/img/medium.png" alt="medium">
 
     **Rationale:**
 
