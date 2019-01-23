@@ -86,13 +86,13 @@ Some of the external audit tools use this standard. For example Nessus has funct
 
     **Rationale:**
 
-    The idea behind the `/boot` partition was to make the partition always accessible to any machine that the drive was plugged into. As modern machines have lifted that restriction, there is no longer a fixed need for `/boot` to be separate, unless you require additional processing of the other partitions, such as encryption or file systems that are not natively recognized by the bootloader.
+    > The idea behind the `/boot` partition was to make the partition always accessible to any machine that the drive was plugged into. As modern machines have lifted that restriction, there is no longer a fixed need for `/boot` to be separate, unless you require additional processing of the other partitions, such as encryption or file systems that are not natively recognized by the bootloader.
 
 - **Rule:** Restrict `/boot` partition mount options. <img src="https://github.com/trimstray/working-template/blob/master/doc/img/medium.png" alt="medium">
 
     **Rationale:**
 
-    The boot directory contains important files related to the Linux kernel, so you need to make sure that this directory is locked down to read-only permissions.
+    > The boot directory contains important files related to the Linux kernel, so you need to make sure that this directory is locked down to read-only permissions.
 
     **Example:**
 
@@ -106,13 +106,13 @@ Some of the external audit tools use this standard. For example Nessus has funct
 
     **Rationale:**
 
-    Several daemons/applications use the `/tmp` or `/var/tmp` directories to temporarily store data, log information, or to share information between their sub-components. However, due to the shared nature of these directories, several attacks are possible.
+    > Several daemons/applications use the `/tmp` or `/var/tmp` directories to temporarily store data, log information, or to share information between their sub-components. However, due to the shared nature of these directories, several attacks are possible.
 
 - **Rule:** Restrict `/var` and `/var/tmp` partitions mount options. <img src="https://github.com/trimstray/working-template/blob/master/doc/img/medium.png" alt="medium">
 
     **Rationale:**
 
-    Several daemons/applications use the `/tmp` or `/var/tmp` directories to temporarily store data, log information, or to share information between their sub-components.
+    > Several daemons/applications use the `/tmp` or `/var/tmp` directories to temporarily store data, log information, or to share information between their sub-components.
 
     **Example:**
 
@@ -128,7 +128,7 @@ Some of the external audit tools use this standard. For example Nessus has funct
 
     **Rationale:**
 
-    Due to the shared nature of these directories, several attacks are possible. SELinux offers a solution in the form of polyinstantiated directories. This effectively means that both `/tmp/` and `/var/tmp/` are instantiated, making them appear private for each user.
+    > Due to the shared nature of these directories, several attacks are possible. SELinux offers a solution in the form of polyinstantiated directories. This effectively means that both `/tmp/` and `/var/tmp/` are instantiated, making them appear private for each user.
 
     **Example:**
 
@@ -150,9 +150,9 @@ Some of the external audit tools use this standard. For example Nessus has funct
     chcon --reference=/var/tmp/ /var/tmp/tmp-inst
     ```
 
-  **Comment:**
+    **Comment:**
 
-  > Don't do this for `/var/tmp` if this directory is mounted in `/tmp`.
+    > Don't do this for `/var/tmp` if this directory is mounted in `/tmp`.
 
 ### `/var` partition
 
@@ -160,7 +160,7 @@ Some of the external audit tools use this standard. For example Nessus has funct
 
     **Rationale:**
 
-    `/var` can be filled up by user programs or daemons. Therefore it can be safe to have these in separate partitions that would prevent `/`, the root partition, to be 100% full, and would hit your system badly.
+    > `/var` can be filled up by user programs or daemons. Therefore it can be safe to have these in separate partitions that would prevent `/`, the root partition, to be 100% full, and would hit your system badly.
 
 - **Rule:** Restrict `/var` partition mount options. <img src="https://github.com/trimstray/working-template/blob/master/doc/img/low.png" alt="low">
 
