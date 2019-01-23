@@ -38,9 +38,6 @@
   * [How to use?](#how-to-use)
   * [OpenSCAP](#openscap)
     + [Introduction](#information_source-introduction)
-    + [Secure rooms](#eight_pointed_black_star-secure-rooms)
-
-:collision: Work in progress...
 
 # Introduction
 
@@ -58,4 +55,4 @@ All items in this checklist contains three levels of priority:
 
 <img src="https://github.com/trimstray/working-template/blob/master/doc/img/openscap_logo.png" alt="OpenSCAP" align="left">
 
-<p align="justify"><b>SCAP</b> (<i>Security Content Automation Protocol</i>) provides a mechanism to check configurations, vulnerability management and evaluate policy compliance for a variety of systems. One of the most popular implementations of SCAP is **OpenSCAP** and it is very helpful for vulnerability assessment and also as hardening helper.</p>
+<p align="justify"><b>SCAP</b> (<i>Security Content Automation Protocol</i>) provides a mechanism to check configurations, vulnerability management and evaluate policy compliance for a variety of systems. One of the most popular implementations of SCAP is <b>OpenSCAP</b> and it is very helpful for vulnerability assessment and also as hardening helper.</p>
