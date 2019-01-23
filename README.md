@@ -45,7 +45,7 @@
 
 ## General disclaimer
 
-:warning: Recommendation is to always turn a feature from this checklist on in pre-production environments instead of jumping directly into production.
+:warning: &nbsp;&nbsp;I recommend is to always turn a feature from this checklist on in pre-production environments instead of jumping directly into production.
 
 ## Levels of priority
 
