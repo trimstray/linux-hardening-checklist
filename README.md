@@ -238,27 +238,27 @@ Some of the external audit tools use this standard. For example Nessus has funct
 
 | <b>Rule</b> | <b>Priority</b> | <b>Checkbox</b> |
 | :---        | :---:       | :---:        |
-| separate `/boot` | <img src="https://github.com/trimstray/working-template/blob/master/doc/img/low.png" alt="low"> | :black_square_button: |
-| separate `/home` | <img src="https://github.com/trimstray/working-template/blob/master/doc/img/low.png" alt="low"> | :black_square_button: |
-| separate `/usr` | <img src="https://github.com/trimstray/working-template/blob/master/doc/img/low.png" alt="low"> | :black_square_button: |
-| separate `/var` | <img src="https://github.com/trimstray/working-template/blob/master/doc/img/high.png" alt="high"> | :black_square_button: |
-| separate `/var/log` and `/var/log/audit` | <img src="https://github.com/trimstray/working-template/blob/master/doc/img/high.png" alt="high"> | :black_square_button: |
-| separate `/tmp` and `/var/tmp` | <img src="https://github.com/trimstray/working-template/blob/master/doc/img/high.png" alt="high"> | :black_square_button: |
+| Separate `/boot` | <img src="https://github.com/trimstray/working-template/blob/master/doc/img/low.png" alt="low"> | :black_square_button: |
+| Separate `/home` | <img src="https://github.com/trimstray/working-template/blob/master/doc/img/low.png" alt="low"> | :black_square_button: |
+| Separate `/usr` | <img src="https://github.com/trimstray/working-template/blob/master/doc/img/low.png" alt="low"> | :black_square_button: |
+| Separate `/var` | <img src="https://github.com/trimstray/working-template/blob/master/doc/img/high.png" alt="high"> | :black_square_button: |
+| Separate `/var/log` and `/var/log/audit` | <img src="https://github.com/trimstray/working-template/blob/master/doc/img/high.png" alt="high"> | :black_square_button: |
+| Separate `/tmp` and `/var/tmp` | <img src="https://github.com/trimstray/working-template/blob/master/doc/img/high.png" alt="high"> | :black_square_button: |
 | | | |
-| restrict `/usr` mount options | <img src="https://github.com/trimstray/working-template/blob/master/doc/img/low.png" alt="low"> | :black_square_button: |
-| restrict `/var` mount options | <img src="https://github.com/trimstray/working-template/blob/master/doc/img/low.png" alt="low"> | :black_square_button: |
-| restrict `/var/log` and `/var/log/audit` mount options | <img src="https://github.com/trimstray/working-template/blob/master/doc/img/low.png" alt="low"> | :black_square_button: |
-| restrict `/proc` mount options | <img src="https://github.com/trimstray/working-template/blob/master/doc/img/low.png" alt="low"> | :black_square_button: |
-| restrict `/boot` mount options | <img src="https://github.com/trimstray/working-template/blob/master/doc/img/medium.png" alt="medium"> | :black_square_button: |
-| restrict `/home` mount options | <img src="https://github.com/trimstray/working-template/blob/master/doc/img/medium.png" alt="medium"> | :black_square_button: |
-| restrict `/tmp/` and `/var/tmp` mount options | <img src="https://github.com/trimstray/working-template/blob/master/doc/img/medium.png" alt="medium"> | :black_square_button: |
-| restrict `/dev/shm` mount options | <img src="https://github.com/trimstray/working-template/blob/master/doc/img/medium.png" alt="medium"> | :black_square_button: |
+| Restrict `/usr` mount options | <img src="https://github.com/trimstray/working-template/blob/master/doc/img/low.png" alt="low"> | :black_square_button: |
+| Restrict `/var` mount options | <img src="https://github.com/trimstray/working-template/blob/master/doc/img/low.png" alt="low"> | :black_square_button: |
+| Restrict `/var/log` and `/var/log/audit` mount options | <img src="https://github.com/trimstray/working-template/blob/master/doc/img/low.png" alt="low"> | :black_square_button: |
+| Restrict `/proc` mount options | <img src="https://github.com/trimstray/working-template/blob/master/doc/img/low.png" alt="low"> | :black_square_button: |
+| Restrict `/boot` mount options | <img src="https://github.com/trimstray/working-template/blob/master/doc/img/medium.png" alt="medium"> | :black_square_button: |
+| Restrict `/home` mount options | <img src="https://github.com/trimstray/working-template/blob/master/doc/img/medium.png" alt="medium"> | :black_square_button: |
+| Restrict `/tmp/` and `/var/tmp` mount options | <img src="https://github.com/trimstray/working-template/blob/master/doc/img/medium.png" alt="medium"> | :black_square_button: |
+| Restrict `/dev/shm` mount options | <img src="https://github.com/trimstray/working-template/blob/master/doc/img/medium.png" alt="medium"> | :black_square_button: |
 | | | |
-| polyinstantiated `/tmp` and `/var/tmp` | <img src="https://github.com/trimstray/working-template/blob/master/doc/img/medium.png" alt="medium"> | :black_square_button: |
+| Polyinstantiated `/tmp` and `/var/tmp` | <img src="https://github.com/trimstray/working-template/blob/master/doc/img/medium.png" alt="medium"> | :black_square_button: |
 | | | |
-| set group for `/dev/shm` | <img src="https://github.com/trimstray/working-template/blob/master/doc/img/low.png" alt="low"> | :black_square_button: |
+| Set group for `/dev/shm` | <img src="https://github.com/trimstray/working-template/blob/master/doc/img/low.png" alt="low"> | :black_square_button: |
 | | | |
-| encrypt `swap` | <img src="https://github.com/trimstray/working-template/blob/master/doc/img/low.png" alt="low"> | :black_square_button: |
+| Encrypt `swap` | <img src="https://github.com/trimstray/working-template/blob/master/doc/img/low.png" alt="low"> | :black_square_button: |
 
 # Physical Access
 
@@ -277,7 +277,7 @@ Some of the external audit tools use this standard. For example Nessus has funct
 
 | <b>Rule</b> | <b>Priority</b> | <b>Checkbox</b> |
 | :---        | :---:       | :---:        |
-| protect Single User Mode. | <img src="https://github.com/trimstray/working-template/blob/master/doc/img/low.png" alt="low"> | :black_square_button: |
+| Protect Single User Mode. | <img src="https://github.com/trimstray/working-template/blob/master/doc/img/low.png" alt="low"> | :black_square_button: |
 
 # Bootloader
 
@@ -301,7 +301,7 @@ Some of the external audit tools use this standard. For example Nessus has funct
 
 | <b>Rule</b> | <b>Priority</b> | <b>Checkbox</b> |
 | :---        | :---:       | :---:        |
-| protect bootloader config files | <img src="https://github.com/trimstray/working-template/blob/master/doc/img/low.png" alt="low"> | :black_square_button: |
+| Protect bootloader config files | <img src="https://github.com/trimstray/working-template/blob/master/doc/img/low.png" alt="low"> | :black_square_button: |
 
 # Linux Kernel
 
@@ -435,13 +435,13 @@ Some of the external audit tools use this standard. For example Nessus has funct
 
 | <b>Rule</b> | <b>Priority</b> | <b>Checkbox</b> |
 | :---        | :---:       | :---:        |
-| update password policy | <img src="https://github.com/trimstray/working-template/blob/master/doc/img/medium.png" alt="medium"> | :black_square_button: |
-| limit password reuse | <img src="https://github.com/trimstray/working-template/blob/master/doc/img/medium.png" alt="medium"> | :black_square_button: |
-| secure `/etc/login.defs` password policy | <img src="https://github.com/trimstray/working-template/blob/master/doc/img/medium.png" alt="medium"> | :black_square_button: |
+| Update password policy | <img src="https://github.com/trimstray/working-template/blob/master/doc/img/medium.png" alt="medium"> | :black_square_button: |
+| Limit password reuse | <img src="https://github.com/trimstray/working-template/blob/master/doc/img/medium.png" alt="medium"> | :black_square_button: |
+| Secure `/etc/login.defs` password policy | <img src="https://github.com/trimstray/working-template/blob/master/doc/img/medium.png" alt="medium"> | :black_square_button: |
 | | | |
-| set auto logout inactive users. | <img src="https://github.com/trimstray/working-template/blob/master/doc/img/low.png" alt="low"> | :black_square_button: |
-| set last logon/access notification | <img src="https://github.com/trimstray/working-template/blob/master/doc/img/low.png" alt="low"> | :black_square_button: |
-| lock out accounts after a number of incorrect login | <img src="https://github.com/trimstray/working-template/blob/master/doc/img/medium.png" alt="medium"> | :black_square_button: |
+| Set auto logout inactive users. | <img src="https://github.com/trimstray/working-template/blob/master/doc/img/low.png" alt="low"> | :black_square_button: |
+| Set last logon/access notification | <img src="https://github.com/trimstray/working-template/blob/master/doc/img/low.png" alt="low"> | :black_square_button: |
+| Lock out accounts after a number of incorrect login | <img src="https://github.com/trimstray/working-template/blob/master/doc/img/medium.png" alt="medium"> | :black_square_button: |
 
 # Filesystems
 
