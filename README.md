@@ -47,6 +47,7 @@
   * [Summary checklist](#ballot_box_with_check-summary-checklist)
 - **[Bootloader](#bootloader)**
   * [Protect bootloader config files](#protect-bootloader-config-files)
+  * [Summary checklist](#ballot_box_with_check-summary-checklist-1)
 - **[Linux Kernel](#linux-kernel)**
 - **[Logging](#logging)**
 - **[Users and Groups](#users-and-groups)**
@@ -254,6 +255,12 @@ Some of the external audit tools use this standard. For example Nessus has funct
     chmod og-rwx /etc/grub.conf
     chmod -R og-rwx /etc/grub.d
     ```
+
+## :ballot_box_with_check: Summary checklist
+
+| <b>Rule</b> | <b>Priority</b> | <b>Checkbox</b> |
+| :---        | :---:       | :---:        |
+| protect bootloader config files | <img src="https://github.com/trimstray/working-template/blob/master/doc/img/low.png" alt="low"> | :black_square_button: |
 
 # Linux Kernel
 
