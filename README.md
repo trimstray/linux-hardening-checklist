@@ -65,6 +65,11 @@
 - **[SELinux & Auditd](#selinux--auditd)**
 - **[System Updates](#system-updates)**
 - **[Network](#network)**
+  * [:label: TCP/SYN](#label-tcp-syn)
+  * [:label: Routing](#label-routing)
+  * [:label: ICMP Protocol](#label-icmp-protocol)
+  * [:label: Broadcast](#label-broadcast)
+  * [Summary checklist](#ballot_box_with_check-summary-checklist-5)
 - **[Services](#services)**
 - **[Tools](#tools)**
 
@@ -435,6 +440,26 @@ Some of the external audit tools use this standard. For example Nessus has funct
 | set last logon/access notification | <img src="https://github.com/trimstray/working-template/blob/master/doc/img/low.png" alt="low"> | :black_square_button: |
 | lock out accounts after a number of incorrect login | <img src="https://github.com/trimstray/working-template/blob/master/doc/img/medium.png" alt="medium"> | :black_square_button: |
 
+# Filesystems
+
+## :label: Hardlinks & Symlinks
+
+- <img src="https://github.com/trimstray/working-template/blob/master/doc/img/low.png" alt="low"> Enable hard/soft link protection.
+
+    **Example:**
+
+    ```bash
+    # Edit /etc/pam.d/system-auth
+    echo "fs.protected_hardlinks = 1" > /etc/sysctl.d/50-fs-hardening.conf
+    echo "fs.protected_symlinks = 1" >> /etc/sysctl.d/50-fs-hardening.conf
+    ```
+
+## :ballot_box_with_check: Summary checklist
+
+| <b>Rule</b> | <b>Priority</b> | <b>Checkbox</b> |
+| :---        | :---:       | :---:        |
+| Enable hard/soft link protection. | <img src="https://github.com/trimstray/working-template/blob/master/doc/img/low.png" alt="low"> | :black_square_button: |
+
 # Permissions
 
 # SELinux & Auditd
@@ -442,6 +467,72 @@ Some of the external audit tools use this standard. For example Nessus has funct
 # System Updates
 
 # Network
+
+## :label: TCP/SYN
+
+- <img src="https://github.com/trimstray/working-template/blob/master/doc/img/medium.png" alt="medium"> Enable TCP SYN Cookie protection.
+
+    **Example:**
+
+    ```bash
+    # Edit /etc/pam.d/system-auth
+    echo "net.ipv4.tcp_syncookies = 1" > /etc/sysctl.d/50-net-stack.conf
+    ```
+
+## :label: Routing
+
+- <img src="https://github.com/trimstray/working-template/blob/master/doc/img/medium.png" alt="medium"> Disable IP source routing.
+
+    **Example:**
+
+    ```bash
+    # Edit /etc/pam.d/system-auth
+    echo "net.ipv4.conf.all.accept_source_route = 0" > /etc/sysctl.d/50-net-stack.conf
+    ```
+
+## :label: ICMP Protocol
+
+- <img src="https://github.com/trimstray/working-template/blob/master/doc/img/medium.png" alt="medium"> Disable ICMP redirect acceptance.
+
+    **Example:**
+
+    ```bash
+    # Edit /etc/pam.d/system-auth
+    echo "net.ipv4.conf.all.accept_redirects = 0" > /etc/sysctl.d/50-net-stack.conf
+    ```
+
+- <img src="https://github.com/trimstray/working-template/blob/master/doc/img/medium.png" alt="medium"> Enable ignoring to ICMP requests.
+
+    **Example:**
+
+    ```bash
+    # Edit /etc/pam.d/system-auth
+    echo "net.ipv4.icmp_echo_ignore_all = 1" > /etc/sysctl.d/50-net-stack.conf
+    ```
+
+## :label: Broadcast
+
+- <img src="https://github.com/trimstray/working-template/blob/master/doc/img/medium.png" alt="medium"> Enable ignoring broadcasts request.
+
+    **Example:**
+
+    ```bash
+    # Edit /etc/pam.d/system-auth
+    echo "net.ipv4.icmp_echo_ignore_broadcasts = 1" > /etc/sysctl.d/50-net-stack.conf
+    ```
+
+## :ballot_box_with_check: Summary checklist
+
+| <b>Rule</b> | <b>Priority</b> | <b>Checkbox</b> |
+| :---        | :---:       | :---:        |
+| Enable TCP SYN Cookie protection. | <img src="https://github.com/trimstray/working-template/blob/master/doc/img/medium.png" alt="medium"> | :black_square_button: |
+| | | |
+| Disable IP source routing. | <img src="https://github.com/trimstray/working-template/blob/master/doc/img/medium.png" alt="medium"> | :black_square_button: |
+| | | |
+| Disable ICMP redirect acceptance. | <img src="https://github.com/trimstray/working-template/blob/master/doc/img/medium.png" alt="medium"> | :black_square_button: |
+| Enable ignoring to ICMP requests. | <img src="https://github.com/trimstray/working-template/blob/master/doc/img/medium.png" alt="medium"> | :black_square_button: |
+| | | |
+| Enable ignoring broadcasts request. | <img src="https://github.com/trimstray/working-template/blob/master/doc/img/medium.png" alt="medium"> | :black_square_button: |
 
 # Services
 
