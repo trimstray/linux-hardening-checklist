@@ -452,7 +452,6 @@ Some of the external audit tools use this standard. For example Nessus has funct
     **Example:**
 
     ```bash
-    # Edit /etc/pam.d/system-auth
     echo "fs.protected_hardlinks = 1" > /etc/sysctl.d/50-fs-hardening.conf
     echo "fs.protected_symlinks = 1" >> /etc/sysctl.d/50-fs-hardening.conf
     ```
@@ -478,7 +477,6 @@ Some of the external audit tools use this standard. For example Nessus has funct
     **Example:**
 
     ```bash
-    # Edit /etc/pam.d/system-auth
     echo "net.ipv4.tcp_syncookies = 1" > /etc/sysctl.d/50-net-stack.conf
     ```
 
@@ -489,7 +487,6 @@ Some of the external audit tools use this standard. For example Nessus has funct
     **Example:**
 
     ```bash
-    # Edit /etc/pam.d/system-auth
     echo "net.ipv4.conf.all.accept_source_route = 0" > /etc/sysctl.d/50-net-stack.conf
     ```
 
@@ -500,7 +497,6 @@ Some of the external audit tools use this standard. For example Nessus has funct
     **Example:**
 
     ```bash
-    # Edit /etc/pam.d/system-auth
     echo "net.ipv4.conf.all.accept_redirects = 0" > /etc/sysctl.d/50-net-stack.conf
     ```
 
@@ -509,7 +505,6 @@ Some of the external audit tools use this standard. For example Nessus has funct
     **Example:**
 
     ```bash
-    # Edit /etc/pam.d/system-auth
     echo "net.ipv4.icmp_echo_ignore_all = 1" > /etc/sysctl.d/50-net-stack.conf
     ```
 
@@ -520,7 +515,6 @@ Some of the external audit tools use this standard. For example Nessus has funct
     **Example:**
 
     ```bash
-    # Edit /etc/pam.d/system-auth
     echo "net.ipv4.icmp_echo_ignore_broadcasts = 1" > /etc/sysctl.d/50-net-stack.conf
     ```
 
