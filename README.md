@@ -44,7 +44,6 @@
   * [Polyinstantiated directories](#polyinstantiated-directories)
   * [Shared memory](#shared-memory)
   * [Encrypt partitions](#encrypt-partitions)
-  * [:ballot_box_with_check: Summary checklist](#ballot-box-with-check-summary-checklist)
   * [Summary checklist](#ballot_box_with_check-summary-checklist)
 - **[Bootloader](#bootloader)**
   * [Protect bootloader config files](#protect-bootloader-config-files)
