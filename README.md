@@ -52,11 +52,15 @@
   * [Protect bootloader config files](#protect-bootloader-config-files)
   * [Summary checklist](#ballot_box_with_check-summary-checklist-2)
 - **[Linux Kernel](#linux-kernel)**
+  * [Kernel logs](#kernel-logs)
+  * [Kernel pointers](#kernel-pointers)
+  * [ExecShield](#execshield)
+  * [Summary checklist](#ballot_box_with_check-summary-checklist-3)
 - **[Logging](#logging)**
 - **[Users and Groups](#users-and-groups)**
   * [Passwords](#passwords)
   * [Logon Access](#logon-access)
-  * [Summary checklist](#ballot_box_with_check-summary-checklist-3)
+  * [Summary checklist](#ballot_box_with_check-summary-checklist-4)
 - **[Permissions](#permissions)**
 - **[SELinux & Auditd](#selinux--auditd)**
 - **[System Updates](#system-updates)**
@@ -292,6 +296,45 @@ Some of the external audit tools use this standard. For example Nessus has funct
 | protect bootloader config files | <img src="https://github.com/trimstray/working-template/blob/master/doc/img/low.png" alt="low"> | :black_square_button: |
 
 # Linux Kernel
+
+## Kernel logs
+
+- <img src="https://github.com/trimstray/working-template/blob/master/doc/img/low.png" alt="low"> Restricting access to kernel logs.
+
+    **Example:**
+
+    ```bash
+    echo "kernel.dmesg_restrict = 1" > /etc/sysctl.d/50-dmesg-restrict.conf
+    ```
+
+## Kernel pointers
+
+- <img src="https://github.com/trimstray/working-template/blob/master/doc/img/low.png" alt="low"> Restricting access to kernel pointers.
+
+    **Example:**
+
+    ```bash
+    echo "kernel.kptr_restrict = 1" > /etc/sysctl.d/50-kptr-restrict.conf
+    ```
+
+## ExecShield
+
+- <img src="https://github.com/trimstray/working-template/blob/master/doc/img/low.png" alt="low"> ExecShield protection.
+
+    **Example:**
+
+    ```bash
+    echo "kernel.exec-shield = 2" > /etc/sysctl.d/50-exec-shield.conf
+    echo "kernel.randomize_va_space=2" >> /etc/sysctl.d/50-exec-shield.conf
+    ```
+
+## :ballot_box_with_check: Summary checklist
+
+| <b>Rule</b> | <b>Priority</b> | <b>Checkbox</b> |
+| :---        | :---:       | :---:        |
+| Restricting access to kernel logs | <img src="https://github.com/trimstray/working-template/blob/master/doc/img/low.png" alt="low"> | :black_square_button: |
+| Restricting access to kernel pointers | <img src="https://github.com/trimstray/working-template/blob/master/doc/img/low.png" alt="low"> | :black_square_button: |
+| ExecShield protection | <img src="https://github.com/trimstray/working-template/blob/master/doc/img/low.png" alt="low"> | :black_square_button: |
 
 # Logging
 
