@@ -339,9 +339,20 @@ Some of the external audit tools use this standard. For example Nessus has funct
     PASS_MIN_LEN 14
     PASS_MIN_DAYS 1
     PASS_MAX_DAYS 60
+    PASS_WARN_AGE 14
     ```
 
 ## Logon Access
+
+- <img src="https://github.com/trimstray/working-template/blob/master/doc/img/low.png" alt="low"> Set auto logout inactive users.
+
+    **Example:**
+
+    ```bash
+    echo "readonly TMOUT=900" >> /etc/profile.d/idle-users.sh
+    echo "readonly HISTFILE" >> /etc/profile.d/idle-users.sh
+    chmod +x /etc/profile.d/idle-users.sh
+    ```
 
 - <img src="https://github.com/trimstray/working-template/blob/master/doc/img/low.png" alt="low"> Set last logon/access notification.
 
@@ -377,6 +388,7 @@ Some of the external audit tools use this standard. For example Nessus has funct
 | limit password reuse | <img src="https://github.com/trimstray/working-template/blob/master/doc/img/medium.png" alt="medium"> | :black_square_button: |
 | secure `/etc/login.defs` password policy | <img src="https://github.com/trimstray/working-template/blob/master/doc/img/medium.png" alt="medium"> | :black_square_button: |
 | | | |
+| set auto logout inactive users. | <img src="https://github.com/trimstray/working-template/blob/master/doc/img/low.png" alt="low"> | :black_square_button: |
 | set last logon/access notification | <img src="https://github.com/trimstray/working-template/blob/master/doc/img/low.png" alt="low"> | :black_square_button: |
 | lock out accounts after a number of incorrect login | <img src="https://github.com/trimstray/working-template/blob/master/doc/img/medium.png" alt="medium"> | :black_square_button: |
 
