@@ -96,7 +96,7 @@ Some of the external audit tools use this standard. For example Nessus has funct
 
 # Partitioning
 
-## :low_brightness: Separate partitions
+## :small_blue_diamond: Separate partitions
 
 - <img src="https://github.com/trimstray/working-template/blob/master/doc/img/low.png" alt="low"> Ensure `/boot` located on separate partition.
 
@@ -110,7 +110,7 @@ Some of the external audit tools use this standard. For example Nessus has funct
 
 - <img src="https://github.com/trimstray/working-template/blob/master/doc/img/high.png" alt="high"> Ensure `/tmp` and `/var/tmp` located on separate partitions.
 
-## :low_brightness: Restrict mount options
+## :small_blue_diamond: Restrict mount options
 
 - <img src="https://github.com/trimstray/working-template/blob/master/doc/img/low.png" alt="low"> Restrict `/usr` partition mount options.
 
@@ -181,7 +181,7 @@ Some of the external audit tools use this standard. For example Nessus has funct
     tmpfs  /dev/shm  tmpfs  rw,nodev,nosuid,noexec,size=1024M,mode=1777 0 0
     ```
 
-## :low_brightness: Polyinstantiated directories
+## :small_blue_diamond: Polyinstantiated directories
 
 - <img src="https://github.com/trimstray/working-template/blob/master/doc/img/medium.png" alt="medium"> Setting up polyinstantiated `/var` and `/var/tmp` directories.
 
@@ -202,7 +202,7 @@ Some of the external audit tools use this standard. For example Nessus has funct
     chcon --reference=/var/tmp/ /var/tmp/tmp-inst
     ```
 
-## :low_brightness: Shared memory
+## :small_blue_diamond: Shared memory
 
 - <img src="https://github.com/trimstray/working-template/blob/master/doc/img/low.png" alt="low"> Set group for `/dev/shm`.
 
@@ -212,7 +212,7 @@ Some of the external audit tools use this standard. For example Nessus has funct
     tmpfs  /dev/shm  tmpfs  rw,nodev,nosuid,noexec,size=1024M,mode=1770,uid=root,gid=shm 0 0
     ```
 
-## :low_brightness: Encrypt partitions
+## :small_blue_diamond: Encrypt partitions
 
 - <img src="https://github.com/trimstray/working-template/blob/master/doc/img/low.png" alt="low"> Encrypt `swap` partition.
 
@@ -254,7 +254,7 @@ Some of the external audit tools use this standard. For example Nessus has funct
 
 # Physical Access
 
-## :low_brightness: Password for Single User Mode
+## :small_blue_diamond: Password for Single User Mode
 
 - <img src="https://github.com/trimstray/working-template/blob/master/doc/img/low.png" alt="low"> Protect Single User Mode with root password.
 
@@ -273,7 +273,7 @@ Some of the external audit tools use this standard. For example Nessus has funct
 
 # Bootloader
 
-## :low_brightness: Protect bootloader config files
+## :small_blue_diamond: Protect bootloader config files
 
 - <img src="https://github.com/trimstray/working-template/blob/master/doc/img/low.png" alt="low"> Ensure bootloader config files are set properly permissions.
 
@@ -297,7 +297,7 @@ Some of the external audit tools use this standard. For example Nessus has funct
 
 # Linux Kernel
 
-## :low_brightness: Kernel logs
+## :small_blue_diamond: Kernel logs
 
 - <img src="https://github.com/trimstray/working-template/blob/master/doc/img/low.png" alt="low"> Restricting access to kernel logs.
 
@@ -307,7 +307,7 @@ Some of the external audit tools use this standard. For example Nessus has funct
     echo "kernel.dmesg_restrict = 1" > /etc/sysctl.d/50-dmesg-restrict.conf
     ```
 
-## :low_brightness: Kernel pointers
+## :small_blue_diamond: Kernel pointers
 
 - <img src="https://github.com/trimstray/working-template/blob/master/doc/img/low.png" alt="low"> Restricting access to kernel pointers.
 
@@ -317,7 +317,7 @@ Some of the external audit tools use this standard. For example Nessus has funct
     echo "kernel.kptr_restrict = 1" > /etc/sysctl.d/50-kptr-restrict.conf
     ```
 
-## :low_brightness: ExecShield
+## :small_blue_diamond: ExecShield
 
 - <img src="https://github.com/trimstray/working-template/blob/master/doc/img/low.png" alt="low"> ExecShield protection.
 
@@ -340,7 +340,7 @@ Some of the external audit tools use this standard. For example Nessus has funct
 
 # Users and Groups
 
-## :low_brightness: Passwords
+## :small_blue_diamond: Passwords
 
 - <img src="https://github.com/trimstray/working-template/blob/master/doc/img/medium.png" alt="medium"> Update password policy (PAM).
 
@@ -385,7 +385,7 @@ Some of the external audit tools use this standard. For example Nessus has funct
     PASS_WARN_AGE 14
     ```
 
-## :low_brightness: Logon Access
+## :small_blue_diamond: Logon Access
 
 - <img src="https://github.com/trimstray/working-template/blob/master/doc/img/low.png" alt="low"> Set auto logout inactive users.
 
