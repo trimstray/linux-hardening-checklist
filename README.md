@@ -61,8 +61,9 @@
   * [Passwords](#passwords)
   * [Logon Access](#logon-access)
   * [Summary checklist](#ballot_box_with_check-summary-checklist-4)
-- **[Filesystems](#filesystems)**
+- **[Filesystem](#filesystem)**
   * [Hardlinks & Symlinks](#hardlinks--symlinks)
+  * [Dynamic Mounting and Unmounting](#dynamic-mounting-and-unmounting)
   * [Summary checklist](#ballot_box_with_check-summary-checklist-5)
 - **[Permissions](#permissions)**
 - **[SELinux & Auditd](#selinux--auditd)**
@@ -443,7 +444,7 @@ Some of the external audit tools use this standard. For example Nessus has funct
 | Set last logon/access notification | <img src="https://github.com/trimstray/working-template/blob/master/doc/img/low.png" alt="low"> | :black_square_button: |
 | Lock out accounts after a number of incorrect login | <img src="https://github.com/trimstray/working-template/blob/master/doc/img/medium.png" alt="medium"> | :black_square_button: |
 
-# Filesystems
+# Filesystem
 
 ## Hardlinks & Symlinks
 
@@ -456,11 +457,28 @@ Some of the external audit tools use this standard. For example Nessus has funct
     echo "fs.protected_symlinks = 1" >> /etc/sysctl.d/50-fs-hardening.conf
     ```
 
+## Dynamic Mounting and Unmounting
+
+- <img src="https://github.com/trimstray/working-template/blob/master/doc/img/medium.png" alt="medium"> Disable uncommon filesystems.
+
+    **Example:**
+
+    ```bash
+    install cramfs /bin/false
+    install freevxfs /bin/false
+    install jffs2 /bin/false
+    install hfs /bin/false
+    install hfsplus /bin/false
+    install squashfs /bin/false
+    install udf /bin/false
+    ```
+
 ## :ballot_box_with_check: Summary checklist
 
 | <b>Rule</b> | <b>Priority</b> | <b>Checkbox</b> |
 | :---        | :---:       | :---:        |
 | Enable hard/soft link protection. | <img src="https://github.com/trimstray/working-template/blob/master/doc/img/low.png" alt="low"> | :black_square_button: |
+| Disable uncommon filesystems. | <img src="https://github.com/trimstray/working-template/blob/master/doc/img/medium.png" alt="medium"> | :black_square_button: |
 
 # Permissions
 
