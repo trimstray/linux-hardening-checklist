@@ -45,12 +45,18 @@
   * [Shared memory](#shared-memory)
   * [Encrypt partitions](#encrypt-partitions)
   * [Summary checklist](#ballot_box_with_check-summary-checklist)
+- **[Physical Access](#physical-access)
+  * [Password for Single User Mode](#password-for-single-user-mode)
+  * [Summary checklist](#ballot_box_with_check-summary-checklist-1)
 - **[Bootloader](#bootloader)**
   * [Protect bootloader config files](#protect-bootloader-config-files)
-  * [Summary checklist](#ballot_box_with_check-summary-checklist-1)
+  * [Summary checklist](#ballot_box_with_check-summary-checklist-2)
 - **[Linux Kernel](#linux-kernel)**
 - **[Logging](#logging)**
 - **[Users and Groups](#users-and-groups)**
+  * [Passwords](#passwords)
+  * [Logon Access](#logon-access)
+  * [Summary checklist](#ballot_box_with_check-summary-checklist-3)
 - **[Permissions](#permissions)**
 - **[SELinux & Auditd](#selinux--auditd)**
 - **[System Updates](#system-updates)**
@@ -238,6 +244,25 @@ Some of the external audit tools use this standard. For example Nessus has funct
 | set group for `/dev/shm` | <img src="https://github.com/trimstray/working-template/blob/master/doc/img/low.png" alt="low"> | :black_square_button: |
 | encrypt `swap` | <img src="https://github.com/trimstray/working-template/blob/master/doc/img/low.png" alt="low"> | :black_square_button: |
 
+# Physical Access
+
+## Password for Single User Mode
+
+- <img src="https://github.com/trimstray/working-template/blob/master/doc/img/low.png" alt="low"> Protect Single User Mode with root password.
+
+    **Example:**
+
+    ```bash
+    # Edit /etc/sysconfig/init.
+    SINGLE=/sbin/sulogin
+    ```
+
+## :ballot_box_with_check: Summary checklist
+
+| <b>Rule</b> | <b>Priority</b> | <b>Checkbox</b> |
+| :---        | :---:       | :---:        |
+| protect Single User Mode. | <img src="https://github.com/trimstray/working-template/blob/master/doc/img/low.png" alt="low"> | :black_square_button: |
+
 # Bootloader
 
 ## Protect bootloader config files
@@ -267,6 +292,88 @@ Some of the external audit tools use this standard. For example Nessus has funct
 # Logging
 
 # Users and Groups
+
+## Passwords
+
+- <img src="https://github.com/trimstray/working-template/blob/master/doc/img/medium.png" alt="medium"> Update password policy (PAM).
+
+    **Example:**
+
+    ```bash
+    authconfig --passalgo=sha512 \
+    --passminlen=14 \
+    --passminclass=4 \
+    --passmaxrepeat=2 \
+    --passmaxclassrepeat=2 \
+    --enablereqlower \
+    --enablerequpper \
+    --enablereqdigit \
+    --enablereqother \
+    --update
+    ```
+
+- <img src="https://github.com/trimstray/working-template/blob/master/doc/img/medium.png" alt="medium"> Limit password reuse (PAM).
+
+    **Example:**
+
+    ```bash
+    # Edit /etc/pam.d/system-auth
+
+    # For the pam_unix.so case:
+    password sufficient pam_unix.so ... remember=5
+
+    # For the pam_pwhistory.so case:
+    password requisite pam_pwhistory.so ... remember=5
+    ```
+
+- <img src="https://github.com/trimstray/working-template/blob/master/doc/img/medium.png" alt="medium"> Secure `/etc/login.defs` password policy.
+
+    **Example:**
+
+    ```bash
+    # Edit /etc/login.defs
+    PASS_MIN_LEN 14
+    PASS_MIN_DAYS 1
+    PASS_MAX_DAYS 60
+    ```
+
+## Logon Access
+
+- <img src="https://github.com/trimstray/working-template/blob/master/doc/img/low.png" alt="low"> Set last logon/access notification.
+
+    **Example:**
+
+    ```bash
+    # Edit /etc/pam.d/system-auth
+    session required pam_lastlog.so showfailed
+    ```
+
+- <img src="https://github.com/trimstray/working-template/blob/master/doc/img/medium.png" alt="medium"> Lock out accounts after a number of incorrect login (PAM).
+
+    **Example:**
+
+    ```bash
+    # Edit /etc/pam.d/system-auth and /etc/pam.d/password-auth
+
+    # Add the following line immediately before the pam_unix.so statement in the AUTH section:
+    auth required pam_faillock.so preauth silent deny=3 unlock_time=never fail_interval=900
+
+    # Add the following line immediately after the pam_unix.so statement in the AUTH section:
+    auth [default=die] pam_faillock.so authfail deny=3 unlock_time=never fail_interval=900
+
+    # Add the following line immediately before the pam_unix.so statement in the ACCOUNT section:
+    account required pam_faillock.so
+    ```
+
+## :ballot_box_with_check: Summary checklist
+
+| <b>Rule</b> | <b>Priority</b> | <b>Checkbox</b> |
+| :---        | :---:       | :---:        |
+| update password policy | <img src="https://github.com/trimstray/working-template/blob/master/doc/img/medium.png" alt="medium"> | :black_square_button: |
+| limit password reuse | <img src="https://github.com/trimstray/working-template/blob/master/doc/img/medium.png" alt="medium"> | :black_square_button: |
+| secure `/etc/login.defs` password policy | <img src="https://github.com/trimstray/working-template/blob/master/doc/img/medium.png" alt="medium"> | :black_square_button: |
+| set last logon/access notification | <img src="https://github.com/trimstray/working-template/blob/master/doc/img/low.png" alt="low"> | :black_square_button: |
+| lock out accounts after a number of incorrect login | <img src="https://github.com/trimstray/working-template/blob/master/doc/img/medium.png" alt="medium"> | :black_square_button: |
 
 # Permissions
 
