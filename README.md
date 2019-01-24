@@ -65,10 +65,10 @@
 - **[SELinux & Auditd](#selinux--auditd)**
 - **[System Updates](#system-updates)**
 - **[Network](#network)**
-  * [:label: TCP/SYN](#label-tcp-syn)
-  * [:label: Routing](#label-routing)
-  * [:label: ICMP Protocol](#label-icmp-protocol)
-  * [:label: Broadcast](#label-broadcast)
+  * [TCP/SYN](#tcp-syn)
+  * [Routing](#routing)
+  * [ICMP Protocol](#icmp-protocol)
+  * [Broadcast](#broadcast)
   * [Summary checklist](#ballot_box_with_check-summary-checklist-5)
 - **[Services](#services)**
 - **[Tools](#tools)**
@@ -101,7 +101,7 @@ Some of the external audit tools use this standard. For example Nessus has funct
 
 # Partitioning
 
-## :label: Separate partitions
+## Separate partitions
 
 - <img src="https://github.com/trimstray/working-template/blob/master/doc/img/low.png" alt="low"> Ensure `/boot` located on separate partition.
 
@@ -115,7 +115,7 @@ Some of the external audit tools use this standard. For example Nessus has funct
 
 - <img src="https://github.com/trimstray/working-template/blob/master/doc/img/high.png" alt="high"> Ensure `/tmp` and `/var/tmp` located on separate partitions.
 
-## :label: Restrict mount options
+## Restrict mount options
 
 - <img src="https://github.com/trimstray/working-template/blob/master/doc/img/low.png" alt="low"> Restrict `/usr` partition mount options.
 
@@ -186,7 +186,7 @@ Some of the external audit tools use this standard. For example Nessus has funct
     tmpfs  /dev/shm  tmpfs  rw,nodev,nosuid,noexec,size=1024M,mode=1777 0 0
     ```
 
-## :label: Polyinstantiated directories
+## Polyinstantiated directories
 
 - <img src="https://github.com/trimstray/working-template/blob/master/doc/img/medium.png" alt="medium"> Setting up polyinstantiated `/var` and `/var/tmp` directories.
 
@@ -207,7 +207,7 @@ Some of the external audit tools use this standard. For example Nessus has funct
     chcon --reference=/var/tmp/ /var/tmp/tmp-inst
     ```
 
-## :label: Shared memory
+## Shared memory
 
 - <img src="https://github.com/trimstray/working-template/blob/master/doc/img/low.png" alt="low"> Set group for `/dev/shm`.
 
@@ -217,7 +217,7 @@ Some of the external audit tools use this standard. For example Nessus has funct
     tmpfs  /dev/shm  tmpfs  rw,nodev,nosuid,noexec,size=1024M,mode=1770,uid=root,gid=shm 0 0
     ```
 
-## :label: Encrypt partitions
+## Encrypt partitions
 
 - <img src="https://github.com/trimstray/working-template/blob/master/doc/img/low.png" alt="low"> Encrypt `swap` partition.
 
@@ -259,7 +259,7 @@ Some of the external audit tools use this standard. For example Nessus has funct
 
 # Physical Access
 
-## :label: Password for Single User Mode
+## Password for Single User Mode
 
 - <img src="https://github.com/trimstray/working-template/blob/master/doc/img/low.png" alt="low"> Protect Single User Mode with root password.
 
@@ -278,7 +278,7 @@ Some of the external audit tools use this standard. For example Nessus has funct
 
 # Bootloader
 
-## :label: Protect bootloader config files
+## Protect bootloader config files
 
 - <img src="https://github.com/trimstray/working-template/blob/master/doc/img/low.png" alt="low"> Ensure bootloader config files are set properly permissions.
 
@@ -302,7 +302,7 @@ Some of the external audit tools use this standard. For example Nessus has funct
 
 # Linux Kernel
 
-## :label: Kernel logs
+## Kernel logs
 
 - <img src="https://github.com/trimstray/working-template/blob/master/doc/img/low.png" alt="low"> Restricting access to kernel logs.
 
@@ -312,7 +312,7 @@ Some of the external audit tools use this standard. For example Nessus has funct
     echo "kernel.dmesg_restrict = 1" > /etc/sysctl.d/50-dmesg-restrict.conf
     ```
 
-## :label: Kernel pointers
+## Kernel pointers
 
 - <img src="https://github.com/trimstray/working-template/blob/master/doc/img/low.png" alt="low"> Restricting access to kernel pointers.
 
@@ -322,7 +322,7 @@ Some of the external audit tools use this standard. For example Nessus has funct
     echo "kernel.kptr_restrict = 1" > /etc/sysctl.d/50-kptr-restrict.conf
     ```
 
-## :label: ExecShield
+## ExecShield
 
 - <img src="https://github.com/trimstray/working-template/blob/master/doc/img/low.png" alt="low"> ExecShield protection.
 
@@ -345,7 +345,7 @@ Some of the external audit tools use this standard. For example Nessus has funct
 
 # Users and Groups
 
-## :label: Passwords
+## Passwords
 
 - <img src="https://github.com/trimstray/working-template/blob/master/doc/img/medium.png" alt="medium"> Update password policy (PAM).
 
@@ -390,7 +390,7 @@ Some of the external audit tools use this standard. For example Nessus has funct
     PASS_WARN_AGE 14
     ```
 
-## :label: Logon Access
+## Logon Access
 
 - <img src="https://github.com/trimstray/working-template/blob/master/doc/img/low.png" alt="low"> Set auto logout inactive users.
 
@@ -442,7 +442,7 @@ Some of the external audit tools use this standard. For example Nessus has funct
 
 # Filesystems
 
-## :label: Hardlinks & Symlinks
+## Hardlinks & Symlinks
 
 - <img src="https://github.com/trimstray/working-template/blob/master/doc/img/low.png" alt="low"> Enable hard/soft link protection.
 
@@ -468,7 +468,7 @@ Some of the external audit tools use this standard. For example Nessus has funct
 
 # Network
 
-## :label: TCP/SYN
+## TCP/SYN
 
 - <img src="https://github.com/trimstray/working-template/blob/master/doc/img/medium.png" alt="medium"> Enable TCP SYN Cookie protection.
 
@@ -479,7 +479,7 @@ Some of the external audit tools use this standard. For example Nessus has funct
     echo "net.ipv4.tcp_syncookies = 1" > /etc/sysctl.d/50-net-stack.conf
     ```
 
-## :label: Routing
+## Routing
 
 - <img src="https://github.com/trimstray/working-template/blob/master/doc/img/medium.png" alt="medium"> Disable IP source routing.
 
@@ -490,7 +490,7 @@ Some of the external audit tools use this standard. For example Nessus has funct
     echo "net.ipv4.conf.all.accept_source_route = 0" > /etc/sysctl.d/50-net-stack.conf
     ```
 
-## :label: ICMP Protocol
+## ICMP Protocol
 
 - <img src="https://github.com/trimstray/working-template/blob/master/doc/img/medium.png" alt="medium"> Disable ICMP redirect acceptance.
 
@@ -510,7 +510,7 @@ Some of the external audit tools use this standard. For example Nessus has funct
     echo "net.ipv4.icmp_echo_ignore_all = 1" > /etc/sysctl.d/50-net-stack.conf
     ```
 
-## :label: Broadcast
+## Broadcast
 
 - <img src="https://github.com/trimstray/working-template/blob/master/doc/img/medium.png" alt="medium"> Enable ignoring broadcasts request.
 
