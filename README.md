@@ -61,6 +61,9 @@
   * [Passwords](#passwords)
   * [Logon Access](#logon-access)
   * [Summary checklist](#ballot_box_with_check-summary-checklist-4)
+- **[Filesystems](#filesystems)**
+  * [Hardlinks & Symlinks](#hardlinks--symlinks)
+  * [Summary checklist](#ballot_box_with_check-summary-checklist-5)
 - **[Permissions](#permissions)**
 - **[SELinux & Auditd](#selinux--auditd)**
 - **[System Updates](#system-updates)**
@@ -69,7 +72,7 @@
   * [Routing](#routing)
   * [ICMP Protocol](#icmp-protocol)
   * [Broadcast](#broadcast)
-  * [Summary checklist](#ballot_box_with_check-summary-checklist-5)
+  * [Summary checklist](#ballot_box_with_check-summary-checklist-6)
 - **[Services](#services)**
 - **[Tools](#tools)**
 
