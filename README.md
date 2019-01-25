@@ -35,6 +35,7 @@
 # Table of Contents
 
 - **[Introduction](#introduction)**
+  * [Status](#status)
   * [General disclaimer](#general-disclaimer)
   * [Levels of priority](#levels-of-priority)
   * [OpenSCAP](#openscap)
@@ -85,6 +86,10 @@
 # Introduction
 
   > In computing, **hardening** is usually the process of securing a system by reducing its surface of vulnerability, which is larger when a system performs more functions; in principle a single-function system is more secure than a multipurpose one. The main goal of systems hardening is to reduce security risk by eliminating potential attack vectors and condensing the system’s attack surface.
+
+## Status
+
+Still work in progress...
 
 ## General disclaimer
 
