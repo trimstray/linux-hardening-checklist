@@ -101,7 +101,7 @@ All items in this checklist contains three levels of priority:
 
 Some of the external audit tools use this standard. For example Nessus has functionality for authenticated SCAP scans.</p>
 
-  > I tried to make this list fully compatible with OpenSCAP standard and rules.
+  > I tried to make this list compatible with OpenSCAP standard and rules. However, there may be differences.
 
 # Partitioning
 
@@ -113,7 +113,7 @@ Some of the external audit tools use this standard. For example Nessus has funct
 
 - <img src="https://github.com/trimstray/working-template/blob/master/doc/img/low.png" alt="low"> Ensure `/usr` located on separate partition.
 
-- <img src="https://github.com/trimstray/working-template/blob/master/doc/img/high.png" alt="high"> Ensure `/var` located on separate partition.
+- <img src="https://github.com/trimstray/working-template/blob/master/doc/img/medium.png" alt="medium"> Ensure `/var` located on separate partition.
 
 - <img src="https://github.com/trimstray/working-template/blob/master/doc/img/high.png" alt="high"> Ensure `/var/log` and `/var/log/audit` located on separate partitions.
 
@@ -242,7 +242,7 @@ Some of the external audit tools use this standard. For example Nessus has funct
 | Separate `/boot` | <img src="https://github.com/trimstray/working-template/blob/master/doc/img/low.png" alt="low"> | :black_square_button: |
 | Separate `/home` | <img src="https://github.com/trimstray/working-template/blob/master/doc/img/low.png" alt="low"> | :black_square_button: |
 | Separate `/usr` | <img src="https://github.com/trimstray/working-template/blob/master/doc/img/low.png" alt="low"> | :black_square_button: |
-| Separate `/var` | <img src="https://github.com/trimstray/working-template/blob/master/doc/img/high.png" alt="high"> | :black_square_button: |
+| Separate `/var` | <img src="https://github.com/trimstray/working-template/blob/master/doc/img/medium.png" alt="medium"> | :black_square_button: |
 | Separate `/var/log` and `/var/log/audit` | <img src="https://github.com/trimstray/working-template/blob/master/doc/img/high.png" alt="high"> | :black_square_button: |
 | Separate `/tmp` and `/var/tmp` | <img src="https://github.com/trimstray/working-template/blob/master/doc/img/high.png" alt="high"> | :black_square_button: |
 | | | |
@@ -464,13 +464,13 @@ Some of the external audit tools use this standard. For example Nessus has funct
     **Example:**
 
     ```bash
-    install cramfs /bin/false
-    install freevxfs /bin/false
-    install jffs2 /bin/false
-    install hfs /bin/false
-    install hfsplus /bin/false
-    install squashfs /bin/false
-    install udf /bin/false
+    echo "install cramfs /bin/false" > /etc/modprobe.d/uncommon-fs.conf
+    echo "install freevxfs /bin/false" > /etc/modprobe.d/uncommon-fs.conf
+    echo "install jffs2 /bin/false" > /etc/modprobe.d/uncommon-fs.conf
+    echo "install hfs /bin/false" > /etc/modprobe.d/uncommon-fs.conf
+    echo "install hfsplus /bin/false" > /etc/modprobe.d/uncommon-fs.conf
+    echo "install squashfs /bin/false" > /etc/modprobe.d/uncommon-fs.conf
+    echo "install udf /bin/false" > /etc/modprobe.d/uncommon-fs.conf
     ```
 
 ## :ballot_box_with_check: Summary checklist
@@ -483,6 +483,23 @@ Some of the external audit tools use this standard. For example Nessus has funct
 # Permissions
 
 # SELinux & Auditd
+
+## SELinux Enforcing
+
+- <img src="https://github.com/trimstray/working-template/blob/master/doc/img/high.png" alt="high"> Set SELinux Enforcing mode.
+
+    **Example:**
+
+    ```bash
+    # Edit /etc/selinux/config.
+    SELINUXTYPE=enforcing
+    ```
+
+## :ballot_box_with_check: Summary checklist
+
+| <b>Rule</b> | <b>Priority</b> | <b>Checkbox</b> |
+| :---        | :---:       | :---:        |
+| Set SELinux Enforcing mode. | <img src="https://github.com/trimstray/working-template/blob/master/doc/img/high.png" alt="high"> | :black_square_button: |
 
 # System Updates
 
