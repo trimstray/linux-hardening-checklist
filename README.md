@@ -38,6 +38,7 @@
   * [General disclaimer](#general-disclaimer)
   * [Levels of priority](#levels-of-priority)
   * [OpenSCAP](#openscap)
+  * [Todo](#todo)
 - **[Partitioning](#partitioning)**
   * [Separate partitions](#separate-partitions)
   * [Restrict mount options](#restrict-mount-options)
@@ -58,6 +59,7 @@
   * [Memory protection](#memory-protection)
   * [Summary checklist](#ballot_box_with_check-summary-checklist-3)
 - **[Logging](#logging)**
+  * [Syslog](#syslog)
 - **[Users and Groups](#users-and-groups)**
   * [Passwords](#passwords)
   * [Logon Access](#logon-access)
@@ -105,6 +107,11 @@ All items in this checklist contains three levels of priority:
 Some of the external audit tools use this standard. For example Nessus has functionality for authenticated SCAP scans.</p>
 
   > I tried to make this list compatible with OpenSCAP standard and rules. However, there may be differences.
+
+## ToDo
+
+- [ ] Add rationale (e.g. url's, external resources)
+- [ ] Check levels of priority
 
 # Partitioning
 
@@ -357,6 +364,35 @@ Some of the external audit tools use this standard. For example Nessus has funct
 | Randomise memory space. | <img src="https://github.com/trimstray/working-template/blob/master/doc/img/low.png" alt="low"> | :black_square_button: |
 
 # Logging
+
+## Syslog
+
+- <img src="https://github.com/trimstray/working-template/blob/master/doc/img/medium.png" alt="medium"> Ensure syslog service is enabled and running.
+
+    **Example:**
+
+    ```bash
+    systemctl enable rsyslog
+    systemctl start rsyslog
+    ```
+
+- <img src="https://github.com/trimstray/working-template/blob/master/doc/img/medium.png" alt="medium"> Send syslog data to external server.
+
+    **Example:**
+
+    ```bash
+    # ELK
+    # Logstash
+    # Splunk
+    # ...
+    ```
+
+## :ballot_box_with_check: Summary checklist
+
+| <b>Rule</b> | <b>Priority</b> | <b>Checkbox</b> |
+| :---        | :---:       | :---:        |
+| Ensure syslog service is enabled and running. | <img src="https://github.com/trimstray/working-template/blob/master/doc/img/medium.png" alt="medium"> | :black_square_button: |
+| Ensure syslog service is enabled and running. | <img src="https://github.com/trimstray/working-template/blob/master/doc/img/medium.png" alt="medium"> | :black_square_button: |
 
 # Users and Groups
 
