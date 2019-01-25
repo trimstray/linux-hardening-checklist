@@ -89,7 +89,9 @@
 
 ## Status
 
-Still work in progress...
+Still work in progress... :construction_worker:
+
+I also created another repository (in a more detailed way): [the-practical-linux-hardening-guide](https://github.com/trimstray/the-practical-linux-hardening-guide).
 
 ## General disclaimer
 
