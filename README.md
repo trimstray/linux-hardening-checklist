@@ -55,6 +55,7 @@
   * [Kernel logs](#kernel-logs)
   * [Kernel pointers](#kernel-pointers)
   * [ExecShield](#execshield)
+  * [Memory protection](#memory-protection)
   * [Summary checklist](#ballot_box_with_check-summary-checklist-3)
 - **[Logging](#logging)**
 - **[Users and Groups](#users-and-groups)**
@@ -67,13 +68,15 @@
   * [Summary checklist](#ballot_box_with_check-summary-checklist-5)
 - **[Permissions](#permissions)**
 - **[SELinux & Auditd](#selinux--auditd)**
+  * [SELinux Enforcing](#selinux-enforcing)
+  * [Summary checklist](#ballot_box_with_check-summary-checklist-6)
 - **[System Updates](#system-updates)**
 - **[Network](#network)**
   * [TCP/SYN](#tcp-syn)
   * [Routing](#routing)
   * [ICMP Protocol](#icmp-protocol)
   * [Broadcast](#broadcast)
-  * [Summary checklist](#ballot_box_with_check-summary-checklist-6)
+  * [Summary checklist](#ballot_box_with_check-summary-checklist-7)
 - **[Services](#services)**
 - **[Tools](#tools)**
 
@@ -334,7 +337,14 @@ Some of the external audit tools use this standard. For example Nessus has funct
 
     ```bash
     echo "kernel.exec-shield = 2" > /etc/sysctl.d/50-exec-shield.conf
-    echo "kernel.randomize_va_space=2" >> /etc/sysctl.d/50-exec-shield.conf
+    ```
+
+## Memory protections
+
+- <img src="https://github.com/trimstray/working-template/blob/master/doc/img/low.png" alt="low"> Randomise memory space.
+
+    ```bash
+    echo "kernel.randomize_va_space=2" > /etc/sysctl.d/50-rand-va-space.conf
     ```
 
 ## :ballot_box_with_check: Summary checklist
@@ -344,6 +354,7 @@ Some of the external audit tools use this standard. For example Nessus has funct
 | Restricting access to kernel logs | <img src="https://github.com/trimstray/working-template/blob/master/doc/img/low.png" alt="low"> | :black_square_button: |
 | Restricting access to kernel pointers | <img src="https://github.com/trimstray/working-template/blob/master/doc/img/low.png" alt="low"> | :black_square_button: |
 | ExecShield protection | <img src="https://github.com/trimstray/working-template/blob/master/doc/img/low.png" alt="low"> | :black_square_button: |
+| Randomise memory space. | <img src="https://github.com/trimstray/working-template/blob/master/doc/img/low.png" alt="low"> | :black_square_button: |
 
 # Logging
 
@@ -471,6 +482,11 @@ Some of the external audit tools use this standard. For example Nessus has funct
     echo "install hfsplus /bin/false" > /etc/modprobe.d/uncommon-fs.conf
     echo "install squashfs /bin/false" > /etc/modprobe.d/uncommon-fs.conf
     echo "install udf /bin/false" > /etc/modprobe.d/uncommon-fs.conf
+    echo "install fat /bin/false" > /etc/modprobe.d/uncommon-fs.conf
+    echo "install vfat /bin/false" > /etc/modprobe.d/uncommon-fs.conf
+    echo "install nfs /bin/false" > /etc/modprobe.d/uncommon-fs.conf
+    echo "install nfsv3 /bin/false" > /etc/modprobe.d/uncommon-fs.conf
+    echo "install gfs2 /bin/false" > /etc/modprobe.d/uncommon-fs.conf
     ```
 
 ## :ballot_box_with_check: Summary checklist
