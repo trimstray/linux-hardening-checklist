@@ -120,7 +120,7 @@ Some of the external audit tools use this standard. For example Nessus has funct
 ## Todo
 
 - [ ] Add rationale (e.g. url's, external resources)
-- [ ] Check levels of priority
+- [ ] Review levels of priority
 
 # Partitioning
 
