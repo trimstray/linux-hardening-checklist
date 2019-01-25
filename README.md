@@ -87,6 +87,8 @@
 
   > In computing, **hardening** is usually the process of securing a system by reducing its surface of vulnerability, which is larger when a system performs more functions; in principle a single-function system is more secure than a multipurpose one. The main goal of systems hardening is to reduce security risk by eliminating potential attack vectors and condensing the system’s attack surface.
 
+This check list contain the most important hardening rules for GNU/Linux systems.
+
 ## Status
 
 Still work in progress... :construction_worker:
@@ -115,7 +117,7 @@ Some of the external audit tools use this standard. For example Nessus has funct
 
   > I tried to make this list compatible with OpenSCAP standard and rules. However, there may be differences.
 
-## ToDo
+## Todo
 
 - [ ] Add rationale (e.g. url's, external resources)
 - [ ] Check levels of priority
