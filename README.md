@@ -36,10 +36,10 @@
 
 - **[Introduction](#introduction)**
   * [Status](#status)
+  * [Todo](#todo)
   * [General disclaimer](#general-disclaimer)
   * [Levels of priority](#levels-of-priority)
   * [OpenSCAP](#openscap)
-  * [Todo](#todo)
 - **[Partitioning](#partitioning)**
   * [Separate partitions](#separate-partitions)
   * [Restrict mount options](#restrict-mount-options)
@@ -95,6 +95,11 @@ Still work in progress... :construction_worker:
 
 I also created another repository (in a more detailed way): [the-practical-linux-hardening-guide](https://github.com/trimstray/the-practical-linux-hardening-guide).
 
+## Todo
+
+- [ ] Add rationale (e.g. url's, external resources)
+- [ ] Review levels of priority
+
 ## General disclaimer
 
 I'm not advocating throwing your existing hardening and deployment best practices out the door but I recommend is to always turn a feature from this checklist on in pre-production environments instead of jumping directly into production.
@@ -116,11 +121,6 @@ All items in this checklist contains three levels of priority:
 Some of the external audit tools use this standard. For example Nessus has functionality for authenticated SCAP scans.</p>
 
   > I tried to make this list compatible with OpenSCAP standard and rules. However, there may be differences.
-
-## Todo
-
-- [ ] Add rationale (e.g. url's, external resources)
-- [ ] Review levels of priority
 
 # Partitioning
 
