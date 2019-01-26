@@ -87,7 +87,7 @@
 
   > In computing, **hardening** is usually the process of securing a system by reducing its surface of vulnerability, which is larger when a system performs more functions; in principle a single-function system is more secure than a multipurpose one. The main goal of systems hardening is to reduce security risk by eliminating potential attack vectors and condensing the system’s attack surface.
 
-This check list contain the most important hardening rules for GNU/Linux systems.
+This list contains the most important hardening rules for GNU/Linux systems.
 
 ## Status
 
