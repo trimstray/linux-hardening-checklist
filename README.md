@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/doc/img/linux-hardening-checklist_preview.png"
+    <img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/static/img/linux-hardening-checklist_preview.png"
         alt="Master">
 </p>
 
@@ -106,13 +106,13 @@ I'm not advocating throwing your existing hardening and deployment best practice
 
 All items in this checklist contains three levels of priority:
 
-* <img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/doc/img/low.png" alt="low"> means that the item has a **low** priority.
-* <img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/doc/img/medium.png" alt="medium"> means that the item has a **medium** priority. You shouldn't avoid tackling that item.
-* <img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/doc/img/high.png" alt="high"> means that the item has a **high** priority. You can't avoid following that rule and implement the corrections recommended.
+* <img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/static/img/low.png" alt="low"> means that the item has a **low** priority.
+* <img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/static/img/medium.png" alt="medium"> means that the item has a **medium** priority. You shouldn't avoid tackling that item.
+* <img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/static/img/high.png" alt="high"> means that the item has a **high** priority. You can't avoid following that rule and implement the corrections recommended.
 
 ## OpenSCAP
 
-<img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/doc/img/openscap_logo.png" alt="OpenSCAP" align="left">
+<img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/static/img/openscap_logo.png" alt="OpenSCAP" align="left">
 
 <p align="left"><b>SCAP</b> (<i>Security Content Automation Protocol</i>) provides a mechanism to check configurations, vulnerability management and evaluate policy compliance for a variety of systems. One of the most popular implementations of SCAP is <b>OpenSCAP</b> and it is very helpful for vulnerability assessment and also as hardening helper.
 
@@ -124,21 +124,21 @@ Some of the external audit tools use this standard. For example Nessus has funct
 
 ## Separate partitions
 
-- <img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/doc/img/low.png" alt="low"> Ensure `/boot` located on separate partition.
+- <img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/static/img/low.png" alt="low"> Ensure `/boot` located on separate partition.
 
-- <img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/doc/img/low.png" alt="low"> Ensure `/home` located on separate partition.
+- <img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/static/img/low.png" alt="low"> Ensure `/home` located on separate partition.
 
-- <img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/doc/img/low.png" alt="low"> Ensure `/usr` located on separate partition.
+- <img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/static/img/low.png" alt="low"> Ensure `/usr` located on separate partition.
 
-- <img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/doc/img/medium.png" alt="medium"> Ensure `/var` located on separate partition.
+- <img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/static/img/medium.png" alt="medium"> Ensure `/var` located on separate partition.
 
-- <img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/doc/img/high.png" alt="high"> Ensure `/var/log` and `/var/log/audit` located on separate partitions.
+- <img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/static/img/high.png" alt="high"> Ensure `/var/log` and `/var/log/audit` located on separate partitions.
 
-- <img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/doc/img/high.png" alt="high"> Ensure `/tmp` and `/var/tmp` located on separate partitions.
+- <img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/static/img/high.png" alt="high"> Ensure `/tmp` and `/var/tmp` located on separate partitions.
 
 ## Restrict mount options
 
-- <img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/doc/img/low.png" alt="low"> Restrict `/usr` partition mount options.
+- <img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/static/img/low.png" alt="low"> Restrict `/usr` partition mount options.
 
     **Example:**
 
@@ -146,7 +146,7 @@ Some of the external audit tools use this standard. For example Nessus has funct
     UUID=<...>  /usr  ext4  defaults,nodev,ro  0 2
     ```
 
-- <img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/doc/img/low.png" alt="low"> Restrict `/var` partition mount options.
+- <img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/static/img/low.png" alt="low"> Restrict `/var` partition mount options.
 
     **Example:**
 
@@ -154,7 +154,7 @@ Some of the external audit tools use this standard. For example Nessus has funct
     UUID=<...>  /var  ext4  defaults,nosuid  0 2
     ```
 
-- <img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/doc/img/low.png" alt="low"> Restrict `/var/log` and `/var/log/audit` partitions mount options.
+- <img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/static/img/low.png" alt="low"> Restrict `/var/log` and `/var/log/audit` partitions mount options.
 
     **Example:**
 
@@ -163,7 +163,7 @@ Some of the external audit tools use this standard. For example Nessus has funct
     UUID=<...>  /var/log/audit  ext4  defaults,nosuid,noexec,nodev  0 2
     ```
 
-- <img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/doc/img/low.png" alt="low"> Restrict `/proc` partition mount options.
+- <img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/static/img/low.png" alt="low"> Restrict `/proc` partition mount options.
 
     **Example:**
 
@@ -171,7 +171,7 @@ Some of the external audit tools use this standard. For example Nessus has funct
     proc  /proc  proc  defaults,hidepid=2  0 0
     ```
 
-- <img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/doc/img/medium.png" alt="medium"> Restrict `/boot` partition mount options.
+- <img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/static/img/medium.png" alt="medium"> Restrict `/boot` partition mount options.
 
     **Example:**
 
@@ -179,7 +179,7 @@ Some of the external audit tools use this standard. For example Nessus has funct
     LABEL=/boot  /boot  ext2  defaults,nodev,nosuid,noexec,ro  1 2
     ```
 
-- <img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/doc/img/medium.png" alt="medium"> Restrict `/home` partition mount options.
+- <img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/static/img/medium.png" alt="medium"> Restrict `/home` partition mount options.
 
     **Example:**
 
@@ -187,7 +187,7 @@ Some of the external audit tools use this standard. For example Nessus has funct
     UUID=<...>  /home  ext4  defaults,nodev,nosuid  0 2
     ```
 
-- <img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/doc/img/medium.png" alt="medium"> Restrict `/var` and `/var/tmp` partitions mount options.
+- <img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/static/img/medium.png" alt="medium"> Restrict `/var` and `/var/tmp` partitions mount options.
 
     **Example:**
 
@@ -199,7 +199,7 @@ Some of the external audit tools use this standard. For example Nessus has funct
     UUID=<...>  /tmp  ext4  defaults,nodev,nosuid,noexec  0 2
     ```
 
-- <img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/doc/img/medium.png" alt="medium"> Restrict `/dev/shm` partition mount options.
+- <img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/static/img/medium.png" alt="medium"> Restrict `/dev/shm` partition mount options.
 
     **Example:**
 
@@ -209,7 +209,7 @@ Some of the external audit tools use this standard. For example Nessus has funct
 
 ## Polyinstantiated directories
 
-- <img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/doc/img/medium.png" alt="medium"> Setting up polyinstantiated `/var` and `/var/tmp` directories.
+- <img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/static/img/medium.png" alt="medium"> Setting up polyinstantiated `/var` and `/var/tmp` directories.
 
     **Example:**
 
@@ -230,7 +230,7 @@ Some of the external audit tools use this standard. For example Nessus has funct
 
 ## Shared memory
 
-- <img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/doc/img/low.png" alt="low"> Set group for `/dev/shm`.
+- <img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/static/img/low.png" alt="low"> Set group for `/dev/shm`.
 
     **Example:**
 
@@ -240,7 +240,7 @@ Some of the external audit tools use this standard. For example Nessus has funct
 
 ## Encrypt partitions
 
-- <img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/doc/img/low.png" alt="low"> Encrypt `swap` partition.
+- <img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/static/img/low.png" alt="low"> Encrypt `swap` partition.
 
     **Example:**
 
@@ -256,33 +256,33 @@ Some of the external audit tools use this standard. For example Nessus has funct
 
 | <b>Rule</b> | <b>Priority</b> | <b>Checkbox</b> |
 | :---        | :---:       | :---:        |
-| Separate `/boot` | <img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/doc/img/low.png" alt="low"> | :black_square_button: |
-| Separate `/home` | <img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/doc/img/low.png" alt="low"> | :black_square_button: |
-| Separate `/usr` | <img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/doc/img/low.png" alt="low"> | :black_square_button: |
-| Separate `/var` | <img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/doc/img/medium.png" alt="medium"> | :black_square_button: |
-| Separate `/var/log` and `/var/log/audit` | <img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/doc/img/high.png" alt="high"> | :black_square_button: |
-| Separate `/tmp` and `/var/tmp` | <img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/doc/img/high.png" alt="high"> | :black_square_button: |
+| Separate `/boot` | <img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/static/img/low.png" alt="low"> | :black_square_button: |
+| Separate `/home` | <img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/static/img/low.png" alt="low"> | :black_square_button: |
+| Separate `/usr` | <img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/static/img/low.png" alt="low"> | :black_square_button: |
+| Separate `/var` | <img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/static/img/medium.png" alt="medium"> | :black_square_button: |
+| Separate `/var/log` and `/var/log/audit` | <img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/static/img/high.png" alt="high"> | :black_square_button: |
+| Separate `/tmp` and `/var/tmp` | <img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/static/img/high.png" alt="high"> | :black_square_button: |
 | | | |
-| Restrict `/usr` mount options | <img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/doc/img/low.png" alt="low"> | :black_square_button: |
-| Restrict `/var` mount options | <img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/doc/img/low.png" alt="low"> | :black_square_button: |
-| Restrict `/var/log` and `/var/log/audit` mount options | <img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/doc/img/low.png" alt="low"> | :black_square_button: |
-| Restrict `/proc` mount options | <img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/doc/img/low.png" alt="low"> | :black_square_button: |
-| Restrict `/boot` mount options | <img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/doc/img/medium.png" alt="medium"> | :black_square_button: |
-| Restrict `/home` mount options | <img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/doc/img/medium.png" alt="medium"> | :black_square_button: |
-| Restrict `/tmp/` and `/var/tmp` mount options | <img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/doc/img/medium.png" alt="medium"> | :black_square_button: |
-| Restrict `/dev/shm` mount options | <img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/doc/img/medium.png" alt="medium"> | :black_square_button: |
+| Restrict `/usr` mount options | <img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/static/img/low.png" alt="low"> | :black_square_button: |
+| Restrict `/var` mount options | <img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/static/img/low.png" alt="low"> | :black_square_button: |
+| Restrict `/var/log` and `/var/log/audit` mount options | <img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/static/img/low.png" alt="low"> | :black_square_button: |
+| Restrict `/proc` mount options | <img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/static/img/low.png" alt="low"> | :black_square_button: |
+| Restrict `/boot` mount options | <img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/static/img/medium.png" alt="medium"> | :black_square_button: |
+| Restrict `/home` mount options | <img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/static/img/medium.png" alt="medium"> | :black_square_button: |
+| Restrict `/tmp/` and `/var/tmp` mount options | <img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/static/img/medium.png" alt="medium"> | :black_square_button: |
+| Restrict `/dev/shm` mount options | <img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/static/img/medium.png" alt="medium"> | :black_square_button: |
 | | | |
-| Polyinstantiated `/tmp` and `/var/tmp` | <img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/doc/img/medium.png" alt="medium"> | :black_square_button: |
+| Polyinstantiated `/tmp` and `/var/tmp` | <img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/static/img/medium.png" alt="medium"> | :black_square_button: |
 | | | |
-| Set group for `/dev/shm` | <img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/doc/img/low.png" alt="low"> | :black_square_button: |
+| Set group for `/dev/shm` | <img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/static/img/low.png" alt="low"> | :black_square_button: |
 | | | |
-| Encrypt `swap` | <img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/doc/img/low.png" alt="low"> | :black_square_button: |
+| Encrypt `swap` | <img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/static/img/low.png" alt="low"> | :black_square_button: |
 
 # Physical Access
 
 ## Password for Single User Mode
 
-- <img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/doc/img/low.png" alt="low"> Protect Single User Mode with root password.
+- <img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/static/img/low.png" alt="low"> Protect Single User Mode with root password.
 
     **Example:**
 
@@ -295,13 +295,13 @@ Some of the external audit tools use this standard. For example Nessus has funct
 
 | <b>Rule</b> | <b>Priority</b> | <b>Checkbox</b> |
 | :---        | :---:       | :---:        |
-| Protect Single User Mode. | <img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/doc/img/low.png" alt="low"> | :black_square_button: |
+| Protect Single User Mode. | <img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/static/img/low.png" alt="low"> | :black_square_button: |
 
 # Bootloader
 
 ## Protect bootloader config files
 
-- <img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/doc/img/low.png" alt="low"> Ensure bootloader config files are set properly permissions.
+- <img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/static/img/low.png" alt="low"> Ensure bootloader config files are set properly permissions.
 
     **Example:**
 
@@ -319,13 +319,13 @@ Some of the external audit tools use this standard. For example Nessus has funct
 
 | <b>Rule</b> | <b>Priority</b> | <b>Checkbox</b> |
 | :---        | :---:       | :---:        |
-| Protect bootloader config files | <img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/doc/img/low.png" alt="low"> | :black_square_button: |
+| Protect bootloader config files | <img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/static/img/low.png" alt="low"> | :black_square_button: |
 
 # Linux Kernel
 
 ## Kernel logs
 
-- <img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/doc/img/low.png" alt="low"> Restricting access to kernel logs.
+- <img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/static/img/low.png" alt="low"> Restricting access to kernel logs.
 
     **Example:**
 
@@ -335,7 +335,7 @@ Some of the external audit tools use this standard. For example Nessus has funct
 
 ## Kernel pointers
 
-- <img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/doc/img/low.png" alt="low"> Restricting access to kernel pointers.
+- <img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/static/img/low.png" alt="low"> Restricting access to kernel pointers.
 
     **Example:**
 
@@ -345,7 +345,7 @@ Some of the external audit tools use this standard. For example Nessus has funct
 
 ## ExecShield
 
-- <img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/doc/img/low.png" alt="low"> ExecShield protection.
+- <img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/static/img/low.png" alt="low"> ExecShield protection.
 
     **Example:**
 
@@ -355,7 +355,7 @@ Some of the external audit tools use this standard. For example Nessus has funct
 
 ## Memory protections
 
-- <img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/doc/img/low.png" alt="low"> Randomise memory space.
+- <img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/static/img/low.png" alt="low"> Randomise memory space.
 
     ```bash
     echo "kernel.randomize_va_space=2" > /etc/sysctl.d/50-rand-va-space.conf
@@ -365,16 +365,16 @@ Some of the external audit tools use this standard. For example Nessus has funct
 
 | <b>Rule</b> | <b>Priority</b> | <b>Checkbox</b> |
 | :---        | :---:       | :---:        |
-| Restricting access to kernel logs | <img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/doc/img/low.png" alt="low"> | :black_square_button: |
-| Restricting access to kernel pointers | <img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/doc/img/low.png" alt="low"> | :black_square_button: |
-| ExecShield protection | <img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/doc/img/low.png" alt="low"> | :black_square_button: |
-| Randomise memory space. | <img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/doc/img/low.png" alt="low"> | :black_square_button: |
+| Restricting access to kernel logs | <img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/static/img/low.png" alt="low"> | :black_square_button: |
+| Restricting access to kernel pointers | <img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/static/img/low.png" alt="low"> | :black_square_button: |
+| ExecShield protection | <img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/static/img/low.png" alt="low"> | :black_square_button: |
+| Randomise memory space. | <img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/static/img/low.png" alt="low"> | :black_square_button: |
 
 # Logging
 
 ## Syslog
 
-- <img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/doc/img/medium.png" alt="medium"> Ensure syslog service is enabled and running.
+- <img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/static/img/medium.png" alt="medium"> Ensure syslog service is enabled and running.
 
     **Example:**
 
@@ -383,7 +383,7 @@ Some of the external audit tools use this standard. For example Nessus has funct
     systemctl start rsyslog
     ```
 
-- <img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/doc/img/medium.png" alt="medium"> Send syslog data to external server.
+- <img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/static/img/medium.png" alt="medium"> Send syslog data to external server.
 
     **Example:**
 
@@ -398,14 +398,14 @@ Some of the external audit tools use this standard. For example Nessus has funct
 
 | <b>Rule</b> | <b>Priority</b> | <b>Checkbox</b> |
 | :---        | :---:       | :---:        |
-| Ensure syslog service is enabled and running. | <img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/doc/img/medium.png" alt="medium"> | :black_square_button: |
-| Ensure syslog service is enabled and running. | <img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/doc/img/medium.png" alt="medium"> | :black_square_button: |
+| Ensure syslog service is enabled and running. | <img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/static/img/medium.png" alt="medium"> | :black_square_button: |
+| Ensure syslog service is enabled and running. | <img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/static/img/medium.png" alt="medium"> | :black_square_button: |
 
 # Users and Groups
 
 ## Passwords
 
-- <img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/doc/img/medium.png" alt="medium"> Update password policy (PAM).
+- <img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/static/img/medium.png" alt="medium"> Update password policy (PAM).
 
     **Example:**
 
@@ -422,7 +422,7 @@ Some of the external audit tools use this standard. For example Nessus has funct
     --update
     ```
 
-- <img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/doc/img/medium.png" alt="medium"> Limit password reuse (PAM).
+- <img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/static/img/medium.png" alt="medium"> Limit password reuse (PAM).
 
     **Example:**
 
@@ -436,7 +436,7 @@ Some of the external audit tools use this standard. For example Nessus has funct
     password requisite pam_pwhistory.so ... remember=5
     ```
 
-- <img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/doc/img/medium.png" alt="medium"> Secure `/etc/login.defs` password policy.
+- <img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/static/img/medium.png" alt="medium"> Secure `/etc/login.defs` password policy.
 
     **Example:**
 
@@ -450,7 +450,7 @@ Some of the external audit tools use this standard. For example Nessus has funct
 
 ## Logon Access
 
-- <img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/doc/img/low.png" alt="low"> Set auto logout inactive users.
+- <img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/static/img/low.png" alt="low"> Set auto logout inactive users.
 
     **Example:**
 
@@ -460,7 +460,7 @@ Some of the external audit tools use this standard. For example Nessus has funct
     chmod +x /etc/profile.d/idle-users.sh
     ```
 
-- <img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/doc/img/low.png" alt="low"> Set last logon/access notification.
+- <img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/static/img/low.png" alt="low"> Set last logon/access notification.
 
     **Example:**
 
@@ -469,7 +469,7 @@ Some of the external audit tools use this standard. For example Nessus has funct
     session required pam_lastlog.so showfailed
     ```
 
-- <img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/doc/img/medium.png" alt="medium"> Lock out accounts after a number of incorrect login (PAM).
+- <img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/static/img/medium.png" alt="medium"> Lock out accounts after a number of incorrect login (PAM).
 
     **Example:**
 
@@ -490,19 +490,19 @@ Some of the external audit tools use this standard. For example Nessus has funct
 
 | <b>Rule</b> | <b>Priority</b> | <b>Checkbox</b> |
 | :---        | :---:       | :---:        |
-| Update password policy | <img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/doc/img/medium.png" alt="medium"> | :black_square_button: |
-| Limit password reuse | <img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/doc/img/medium.png" alt="medium"> | :black_square_button: |
-| Secure `/etc/login.defs` password policy | <img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/doc/img/medium.png" alt="medium"> | :black_square_button: |
+| Update password policy | <img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/static/img/medium.png" alt="medium"> | :black_square_button: |
+| Limit password reuse | <img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/static/img/medium.png" alt="medium"> | :black_square_button: |
+| Secure `/etc/login.defs` password policy | <img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/static/img/medium.png" alt="medium"> | :black_square_button: |
 | | | |
-| Set auto logout inactive users. | <img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/doc/img/low.png" alt="low"> | :black_square_button: |
-| Set last logon/access notification | <img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/doc/img/low.png" alt="low"> | :black_square_button: |
-| Lock out accounts after a number of incorrect login | <img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/doc/img/medium.png" alt="medium"> | :black_square_button: |
+| Set auto logout inactive users. | <img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/static/img/low.png" alt="low"> | :black_square_button: |
+| Set last logon/access notification | <img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/static/img/low.png" alt="low"> | :black_square_button: |
+| Lock out accounts after a number of incorrect login | <img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/static/img/medium.png" alt="medium"> | :black_square_button: |
 
 # Filesystem
 
 ## Hardlinks & Symlinks
 
-- <img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/doc/img/low.png" alt="low"> Enable hard/soft link protection.
+- <img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/static/img/low.png" alt="low"> Enable hard/soft link protection.
 
     **Example:**
 
@@ -513,7 +513,7 @@ Some of the external audit tools use this standard. For example Nessus has funct
 
 ## Dynamic Mounting and Unmounting
 
-- <img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/doc/img/medium.png" alt="medium"> Disable uncommon filesystems.
+- <img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/static/img/medium.png" alt="medium"> Disable uncommon filesystems.
 
     **Example:**
 
@@ -536,8 +536,8 @@ Some of the external audit tools use this standard. For example Nessus has funct
 
 | <b>Rule</b> | <b>Priority</b> | <b>Checkbox</b> |
 | :---        | :---:       | :---:        |
-| Enable hard/soft link protection. | <img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/doc/img/low.png" alt="low"> | :black_square_button: |
-| Disable uncommon filesystems. | <img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/doc/img/medium.png" alt="medium"> | :black_square_button: |
+| Enable hard/soft link protection. | <img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/static/img/low.png" alt="low"> | :black_square_button: |
+| Disable uncommon filesystems. | <img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/static/img/medium.png" alt="medium"> | :black_square_button: |
 
 # Permissions
 
@@ -545,7 +545,7 @@ Some of the external audit tools use this standard. For example Nessus has funct
 
 ## SELinux Enforcing
 
-- <img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/doc/img/high.png" alt="high"> Set SELinux Enforcing mode.
+- <img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/static/img/high.png" alt="high"> Set SELinux Enforcing mode.
 
     **Example:**
 
@@ -558,7 +558,7 @@ Some of the external audit tools use this standard. For example Nessus has funct
 
 | <b>Rule</b> | <b>Priority</b> | <b>Checkbox</b> |
 | :---        | :---:       | :---:        |
-| Set SELinux Enforcing mode. | <img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/doc/img/high.png" alt="high"> | :black_square_button: |
+| Set SELinux Enforcing mode. | <img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/static/img/high.png" alt="high"> | :black_square_button: |
 
 # System Updates
 
@@ -566,7 +566,7 @@ Some of the external audit tools use this standard. For example Nessus has funct
 
 ## TCP/SYN
 
-- <img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/doc/img/medium.png" alt="medium"> Enable TCP SYN Cookie protection.
+- <img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/static/img/medium.png" alt="medium"> Enable TCP SYN Cookie protection.
 
     **Example:**
 
@@ -576,7 +576,7 @@ Some of the external audit tools use this standard. For example Nessus has funct
 
 ## Routing
 
-- <img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/doc/img/medium.png" alt="medium"> Disable IP source routing.
+- <img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/static/img/medium.png" alt="medium"> Disable IP source routing.
 
     **Example:**
 
@@ -586,7 +586,7 @@ Some of the external audit tools use this standard. For example Nessus has funct
 
 ## ICMP Protocol
 
-- <img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/doc/img/medium.png" alt="medium"> Disable ICMP redirect acceptance.
+- <img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/static/img/medium.png" alt="medium"> Disable ICMP redirect acceptance.
 
     **Example:**
 
@@ -594,7 +594,7 @@ Some of the external audit tools use this standard. For example Nessus has funct
     echo "net.ipv4.conf.all.accept_redirects = 0" > /etc/sysctl.d/50-net-stack.conf
     ```
 
-- <img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/doc/img/medium.png" alt="medium"> Enable ignoring to ICMP requests.
+- <img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/static/img/medium.png" alt="medium"> Enable ignoring to ICMP requests.
 
     **Example:**
 
@@ -604,7 +604,7 @@ Some of the external audit tools use this standard. For example Nessus has funct
 
 ## Broadcast
 
-- <img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/doc/img/medium.png" alt="medium"> Enable ignoring broadcasts request.
+- <img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/static/img/medium.png" alt="medium"> Enable ignoring broadcasts request.
 
     **Example:**
 
@@ -616,14 +616,14 @@ Some of the external audit tools use this standard. For example Nessus has funct
 
 | <b>Rule</b> | <b>Priority</b> | <b>Checkbox</b> |
 | :---        | :---:       | :---:        |
-| Enable TCP SYN Cookie protection. | <img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/doc/img/medium.png" alt="medium"> | :black_square_button: |
+| Enable TCP SYN Cookie protection. | <img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/static/img/medium.png" alt="medium"> | :black_square_button: |
 | | | |
-| Disable IP source routing. | <img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/doc/img/medium.png" alt="medium"> | :black_square_button: |
+| Disable IP source routing. | <img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/static/img/medium.png" alt="medium"> | :black_square_button: |
 | | | |
-| Disable ICMP redirect acceptance. | <img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/doc/img/medium.png" alt="medium"> | :black_square_button: |
-| Enable ignoring to ICMP requests. | <img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/doc/img/medium.png" alt="medium"> | :black_square_button: |
+| Disable ICMP redirect acceptance. | <img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/static/img/medium.png" alt="medium"> | :black_square_button: |
+| Enable ignoring to ICMP requests. | <img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/static/img/medium.png" alt="medium"> | :black_square_button: |
 | | | |
-| Enable ignoring broadcasts request. | <img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/doc/img/medium.png" alt="medium"> | :black_square_button: |
+| Enable ignoring broadcasts request. | <img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/static/img/medium.png" alt="medium"> | :black_square_button: |
 
 # Services
 
