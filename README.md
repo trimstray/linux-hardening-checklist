@@ -1,5 +1,7 @@
 <p align="center">
-  <img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/static/img/linux-hardening-checklist_preview.png" alt="Master">
+  <a href="https://github.com/trimstray/linux-hardening-checklist">
+    <img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/static/img/linux-hardening-checklist_preview.png" alt="Master">
+  </a>
 </p>
 
 <br>
