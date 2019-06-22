@@ -606,6 +606,17 @@ Some of the external audit tools use this standard. For example Nessus has funct
     ```bash
     echo "net.ipv4.icmp_echo_ignore_broadcasts = 1" > /etc/sysctl.d/50-net-stack.conf
     ```
+## Disable SACK
+- <img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/static/img/medium.png" alt="medium"> Disable TCP SACK.
+
+    **Example:**
+    
+    ```bash
+    sysctl -w net.ipv4.tcp_sack=0
+    echo "net.ipv4.tcp_sack = 0" | sudo tee /etc/sysctl.conf
+    sysctl -p
+    ```
+
 
 ## :ballot_box_with_check: Summary checklist
 
@@ -619,6 +630,9 @@ Some of the external audit tools use this standard. For example Nessus has funct
 | Enable ignoring to ICMP requests. | <img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/static/img/medium.png" alt="medium"> | :black_square_button: |
 | | | |
 | Enable ignoring broadcasts request. | <img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/static/img/medium.png" alt="medium"> | :black_square_button: |
+| | | |
+| Disable TCP SACK. | <img src="https://github.com/trimstray/linux-hardening-checklist/blob/master/static
+/img/medium.png" alt="medium"> | :black_square_button: |
 
 # Services
 
