@@ -30,7 +30,7 @@
 - **[Introduction](#introduction)**
   * [Status](#status)
   * [Todo](#todo)
-  * [General disclaimer](#general-disclaimer)
+  * [Prologue](#prologue)
   * [Levels of priority](#levels-of-priority)
   * [OpenSCAP](#openscap)
 - **[Partitioning](#partitioning)**
@@ -93,7 +93,7 @@ I also created another repository (in a more detailed way): [the-practical-linux
 - [ ] Add rationale (e.g. url's, external resources)
 - [ ] Review levels of priority
 
-## General disclaimer
+## Prologue
 
 I'm not advocating throwing your existing hardening and deployment best practices out the door but I recommend is to always turn a feature from this checklist on in pre-production environments instead of jumping directly into production.
 
