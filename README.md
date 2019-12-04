@@ -613,7 +613,7 @@ Some of the external audit tools use this standard. For example Nessus has funct
     
     ```bash
     sysctl -w net.ipv4.tcp_sack=0
-    echo "net.ipv4.tcp_sack = 0" | sudo tee /etc/sysctl.conf
+    echo "net.ipv4.tcp_sack = 0" | sudo tee -a /etc/sysctl.conf
     sysctl -p
     ```
 
